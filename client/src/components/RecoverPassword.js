@@ -36,7 +36,7 @@ export default function RecoverPassword() {
                     <Form.Control type="email" ref={emailRef} required />
                 </Form.Group>
                 <Button disabled={loading} className="w-100 mt-4" type="submit">
-                    Recover Password
+                    Send Recovery Email
                 </Button>
                 <div className="w-100 text-left">
                     <Link to="/login">Back to login page</Link>
