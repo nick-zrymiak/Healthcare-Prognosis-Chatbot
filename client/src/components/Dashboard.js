@@ -24,7 +24,7 @@ export default function Dashboard() {
         <Card>
             <Card.Body>
                 {currentUser && <Alert variant="success">{message}</Alert>}
-                Dashboard
+                <h3>Dashboard</h3>
             </Card.Body>
         </Card>
         <Button variant="link" onClick={handleLogout}>
