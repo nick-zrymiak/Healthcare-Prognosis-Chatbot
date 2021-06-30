@@ -7,6 +7,7 @@ import { AuthProvider } from "../contexts/AuthContext"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import PrivateRoute from "./PrivateRoute"
 import RecoverPassword from "./RecoverPassword"
+import LandingPage from "./LandingPage"
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
 			<Router>
 				<AuthProvider>
 					<Switch>
+						<Route path="/landingPage" component={LandingPage} />
+
 						<Route path="/signup" component={Signup} />
 						<Route path="/login" component={Login} />
 						<Route path="/recover-password" component={RecoverPassword} />
