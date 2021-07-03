@@ -32,6 +32,9 @@ export default function Dashboard() {
         <Button variant="link" onClick={handleLogout}>
             Log Out
         </Button>
+        <Button variant="link" onClick={()=>{history.push("/landingPage")}}>
+            <h3>RE-DIRECT</h3>
+        </Button>
         </>
     )
 }
