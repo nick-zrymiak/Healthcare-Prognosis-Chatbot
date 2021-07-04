@@ -1,9 +1,12 @@
 import React from "react";
 import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
 import './LandingPage.css';
+import { Link, useHistory } from "react-router-dom";
 
 
 export default function NavBar() {
+    const history = useHistory();
+    
   return (
     <div>
       <>
@@ -15,6 +18,7 @@ export default function NavBar() {
             <Nav.Link href="#home">Home</Nav.Link>
             <Nav.Link href="#purpose">Purpose</Nav.Link>
             <Nav.Link href="#apply">Apply</Nav.Link>
+            <Button variant="primary" onClick={()=>{history.push("/login")}}>Login</Button>{''}
         </Nav>
         </Navbar>
       </>

@@ -19,3 +19,7 @@
     margin-right: 10%;
     /* align-items: flex-end; */
 }
+.navbarLinks > *{
+    /* background-color: blue; */
+    margin-left: 20px;
+}

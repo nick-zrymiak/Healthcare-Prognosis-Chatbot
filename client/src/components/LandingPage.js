@@ -10,10 +10,7 @@ export default class LandingPage extends Component {
     render() {
         return (
             <div>
-                {/* <Container> */}
                 <NavBar expand="lg"></NavBar>
-
-                {/* </Container> */}
                 <h3>This is the landing page</h3>
                 
             </div>
