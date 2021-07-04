@@ -11,6 +11,7 @@ import LandingPage from "./LandingPage";
 
 function App() {
   return (
+
     <Router>
       <AuthProvider>
         <Switch>
@@ -20,6 +21,8 @@ function App() {
           <Route path="/recover-password" component={RecoverPassword} />
           <PrivateRoute exact path="/" component={Dashboard} />
           <Route path="/landingPage" component={LandingPage} />
+
+		  compnent xx
         </Switch>
       </AuthProvider>
     </Router>

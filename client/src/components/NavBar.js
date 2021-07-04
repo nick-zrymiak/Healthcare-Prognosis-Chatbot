@@ -44,12 +44,13 @@ export default function NavBar() {
       <>
         <Navbar className="fullNavbar" bg="dark" variant="dark">
           <div className="brandName">
-            <Navbar.Brand href="#home">HealthCare</Navbar.Brand>
+            <Navbar.Brand href="#home">HealthCare Analyser & ChatBot</Navbar.Brand>
           </div>
           <Nav className="navbarLinks mr-auto">
             <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#purpose">Purpose</Nav.Link>
-            <Nav.Link href="#apply">Apply</Nav.Link>
+            <Nav.Link href="#purpose">About</Nav.Link>
+            <Nav.Link href="#apply">Contributors</Nav.Link>
+            <Nav.Link href="#apply">Dashboard</Nav.Link>
 
             {isLoggedIn ? (
               <Button
@@ -60,16 +61,18 @@ export default function NavBar() {
               >
                 LogOut
               </Button>
-            ) : (
+            ) : 
+            (
               <Button
                 variant="primary"
                 onClick={() => {
-                  history.push("/login");
+                  history.push("/");
                 }}
               >
                 Login
               </Button>
-            )}
+            )
+            }
           </Nav>
         </Navbar>
       </>
