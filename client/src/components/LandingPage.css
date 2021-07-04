@@ -1,0 +1,21 @@
+/* Navbar */
+.fullNavbar{
+    /* display: flex; */
+    /* justify-content: center; */
+    /* justify-content: space-between; */
+    width: 100vw;
+}
+
+
+.brandName{
+    width: 30%;
+    margin-left: 10%;
+}
+
+.navbarLinks{
+    width: 70%;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10%;
+    /* align-items: flex-end; */
+}
