@@ -15,5 +15,5 @@ export default class IntroSection extends Component {
                 </div>
             </section>
         )
-    }
+    } 
 }
