@@ -11,32 +11,16 @@ export default function NavBar() {
   const history = useHistory();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  useEffect(() => checkIfLoggedIn(), [isLoggedIn]);
-
-  const checkIfLoggedIn = () => {
-    // renderAuthButton();
-    console.log("isLoggedIn:", isLoggedIn);
-    console.log("current user", currentUser);
-    if (currentUser != null) {
-      setIsLoggedIn(true);
-    } else {
-      setIsLoggedIn(false);
-    }
-  };
-
   const handleLogout = () => {
     console.log("logging out...");
     setError("");
     try {
       logout();
-      history.push("/landingPage");
+      history.push("/dashboard");
       setRefresh(!refresh);
     } catch {
       setError("Failed to log out");
     }
-    checkIfLoggedIn();
-    history.push("/landingPage");
-    console.log("current user now:", currentUser);
   };
 
   return (
@@ -52,27 +36,14 @@ export default function NavBar() {
             <Nav.Link href="#apply">Contributors</Nav.Link>
             <Nav.Link href="#apply">Dashboard</Nav.Link>
 
-            {isLoggedIn ? (
-              <Button
-                variant="primary"
-                onClick={() => {
-                  handleLogout();
-                }}
-              >
-                LogOut
-              </Button>
-            ) : 
-            (
-              <Button
-                variant="primary"
-                onClick={() => {
-                  history.push("/");
-                }}
-              >
-                Login
-              </Button>
-            )
-            }
+            <Button
+              variant="primary"
+              onClick={() => {
+                handleLogout();
+              }}
+            >
+              LogOut
+            </Button>
           </Nav>
         </Navbar>
       </>

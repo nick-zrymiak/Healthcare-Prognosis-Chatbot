@@ -3,6 +3,7 @@ import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import { Container } from "react-bootstrap";
+import NavBarDashboard from './NavBarDashboard'
 
 export default function Dashboard() {
   const { currentUser, logout } = useAuth();
@@ -23,6 +24,8 @@ export default function Dashboard() {
   console.log(currentUser);
 
   return (
+    <div>
+    <NavBarDashboard expand="lg"></NavBarDashboard>
     <Container
       className="d-flex align-items-center justify-content-center"
       style={{ minHeight: "100vh" }}
@@ -41,13 +44,14 @@ export default function Dashboard() {
           <Button
             variant="link"
             onClick={() => {
-              history.push("/landingPage");
+              history.push("/");
             }}
           >
-            <h3>RE-DIRECT</h3>
+            <h3>Go To Landing Page</h3>
           </Button>
         </>
       </div>
     </Container>
+    </div>
   );
 }

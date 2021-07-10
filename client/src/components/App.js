@@ -19,8 +19,8 @@ function App() {
 
           <Route path="/login" component={Login} />
           <Route path="/recover-password" component={RecoverPassword} />
-          <PrivateRoute exact path="/" component={Dashboard} />
-          <Route path="/landingPage" component={LandingPage} />
+          <PrivateRoute exact path="/dashboard" component={Dashboard} />
+          <Route path="/" component={LandingPage} />
 
 		  compnent xx
         </Switch>
