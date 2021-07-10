@@ -3,7 +3,7 @@ import introImage from '../images/intro-image.png';
 
 export default class IntroSection extends Component {
     render() {
-        return (
+        return ( 
             <section className="introSection">
                 <div className="textSubSection">
                     <h3>IntroSection</h3>
