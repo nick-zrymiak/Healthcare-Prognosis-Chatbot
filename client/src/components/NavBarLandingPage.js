@@ -21,7 +21,6 @@ export default function NavBar() {
             <Nav.Link href="#home">Home</Nav.Link>
             <Nav.Link href="#purpose">About</Nav.Link>
             <Nav.Link href="#apply">Contributors</Nav.Link>
-            <Nav.Link href="#apply">Dashboard</Nav.Link>
 
             <Button
               variant="primary"
