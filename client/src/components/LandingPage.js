@@ -12,11 +12,6 @@ export default class LandingPage extends Component {
             <div>
                 <NavBarLandingPage expand="lg"></NavBarLandingPage>
                 <IntroSection/>
-                <IntroSection/>
-                <IntroSection/>
-                <IntroSection/>
-                <IntroSection/>
-                
             </div>
         )
     }

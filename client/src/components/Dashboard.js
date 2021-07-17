@@ -26,16 +26,15 @@ export default function Dashboard() {
   return (
     <div>
     <NavBarDashboard expand="lg"></NavBarDashboard>
+    <h3>Dashboard</h3>
     <Container
       className="d-flex align-items-center justify-content-center"
       style={{ minHeight: "100vh" }}
     >
       <div className="w-100" style={{ maxWidth: "400px" }}>
-        <>
           <Card>
             <Card.Body>
               {currentUser && <Alert variant="success">{message}</Alert>}
-              <h3>Dashboard</h3>
             </Card.Body>
           </Card>
           <Button variant="link" onClick={handleLogout}>
@@ -49,7 +48,6 @@ export default function Dashboard() {
           >
             <h3>Go To Landing Page</h3>
           </Button>
-        </>
       </div>
     </Container>
     </div>
