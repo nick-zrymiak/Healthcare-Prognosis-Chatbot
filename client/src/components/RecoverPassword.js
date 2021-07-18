@@ -33,23 +33,23 @@ export default function RecoverPassword() {
         <>
           <Card>
             <Card.Body>
-              <h2 className="text-center mb-4">Account Recovery</h2>
+              <h2 className="text-center mb-5">Account Recovery</h2>
               {error && <Alert variant="danger">{error}</Alert>}
               <Form onSubmit={handleSubmit}>
                 <Form.Group id="email">
                   <Form.Label>Email</Form.Label>
                   <Form.Control type="email" ref={emailRef} required />
                 </Form.Group>
-                <Button disabled={loading} className="w-100 mt-4" type="submit">
+                <Button disabled={loading} className="w-100 mt-5" type="submit">
                   Send Recovery Email
                 </Button>
-                <div className="w-100 text-left">
+                <div className="w-100 text-left mt-2">
                   <Link to="/login">Back to login page</Link>
                 </div>
               </Form>
             </Card.Body>
           </Card>
-          <div className="w-100 text-center mt-2">
+          <div className="w-100 text-center mt-3">
             Don't have an account?
             <div className="w-100 text-left">
               <Link to="/signup">Create an account</Link>

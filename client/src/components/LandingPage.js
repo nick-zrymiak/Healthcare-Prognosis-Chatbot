@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import NavBar from './NavBar'
+import NavBarLandingPage from './NavBarLandingPage'
 import IntroSection from './IntroSection';
 
 export default class LandingPage extends Component {
@@ -10,13 +10,8 @@ export default class LandingPage extends Component {
     render() {
         return (
             <div>
-                <NavBar expand="lg"></NavBar>
+                <NavBarLandingPage expand="lg"></NavBarLandingPage>
                 <IntroSection/>
-                <IntroSection/>
-                <IntroSection/>
-                <IntroSection/>
-                <IntroSection/>
-                
             </div>
         )
     }

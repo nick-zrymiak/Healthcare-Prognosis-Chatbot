@@ -3,11 +3,18 @@ import introImage from '../images/intro-image.png';
 
 export default class IntroSection extends Component {
     render() {
-        return (
+        return ( 
             <section className="introSection">
                 <div className="textSubSection">
-                    <h3>IntroSection</h3>
-                    <p>Some dummy text here about the intro</p>
+                    <h3>Getting Started</h3>
+                    <h5>
+                        Get Result with just 3 steps:
+                        <ol>
+                            <li>Create an Account with Us</li>
+                            <li>Upload Relavent Data</li>
+                            <li>Choose an Analysis Tool</li>
+                        </ol>
+                    </h5>
                 </div>
 
                 <div className='imgSubSection'>
