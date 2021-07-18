@@ -43,7 +43,7 @@ export default function RecoverPassword() {
                 <Button disabled={loading} className="w-100 mt-5" type="submit">
                   Send Recovery Email
                 </Button>
-                <div className="w-100 text-left">
+                <div className="w-100 text-left mt-2">
                   <Link to="/login">Back to login page</Link>
                 </div>
               </Form>

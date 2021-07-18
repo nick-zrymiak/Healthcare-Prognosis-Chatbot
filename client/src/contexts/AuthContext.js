@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react"
 import { auth } from "../firebase/Firebase"
+import database from "../firebase/Database"
 
 const AuthContext = React.createContext()
 
@@ -10,6 +11,7 @@ export function useAuth() {
 export function AuthProvider({ children }) {
     const [currentUser, setCurrentUser] = useState()
     const [loading, setLoading] = useState(true)
+    const db = new database()
 
     function login(email, password) {
         return auth.signInWithEmailAndPassword(email, password)
@@ -24,7 +26,10 @@ export function AuthProvider({ children }) {
     }
 
     function signup(email, password) {
-        return auth.createUserWithEmailAndPassword(email, password)
+        return auth.createUserWithEmailAndPassword(email, password).then(credential => {
+            db.addUserInfo(credential.user.uid, credential.email, null, null);
+            return credential
+        })
     }
 
     function updateEmail(email) {

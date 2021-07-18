@@ -48,7 +48,7 @@ export default function Login() {
                 <Button disabled={loading} className="w-100 mt-5" type="submit">
                   Login
                 </Button>
-                <div className="w-100 text-left">
+                <div className="w-100 text-left mt-2">
                   <Link to="/recover-password">Recover password</Link>
                 </div>
               </Form>
