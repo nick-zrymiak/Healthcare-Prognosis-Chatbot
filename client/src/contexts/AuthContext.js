@@ -27,7 +27,7 @@ export function AuthProvider({ children }) {
 
     function signup(email, password) {
         return auth.createUserWithEmailAndPassword(email, password).then(credential => {
-            db.addUserInfo(credential.user.uid, credential.email, null, null);
+            db.addUserInfo(credential.user.uid);
             return credential
         })
     }

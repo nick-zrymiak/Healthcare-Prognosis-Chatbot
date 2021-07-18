@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import database from "../firebase/Database"
 import { useAuth } from "../contexts/AuthContext";
+import { Button } from "react-bootstrap";
 
 export default function UserDataSection() {
     const [data, updateData] = useState();
@@ -19,6 +20,10 @@ export default function UserDataSection() {
         getData();
     };
 
+    async function handleEditUserData() {
+
+    }
+
     return ( 
         <section className="introSection">
             <div className="textSubSection">
@@ -31,8 +36,11 @@ export default function UserDataSection() {
                         <li>Age: {data && data.age}</li>
                         <li>Sex: {data && data.sex}</li>
                         <li>Diabetic: {data && data.diabetic}</li>
-                        <li>Email: {data && data.email}</li>
+                        <li>Email: {currentUser && currentUser.email}</li>
                     </ol>
+                    <Button variant="link" onClick={handleEditUserData}>
+                        Edit
+                    </Button>
                 </h5>
             </div>
         </section>

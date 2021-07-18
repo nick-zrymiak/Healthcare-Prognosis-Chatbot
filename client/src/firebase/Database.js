@@ -8,11 +8,11 @@ export default class Database {
     //  * promise method to create a new user to the database
     //  * @throws some sort of firebase error
     //  */
-    async addUserInfo(userId, email, firstName, lastName) {
+    async addUserInfo(userId) {
         const db = firestore;
         const userRef = db.collection('users').doc(userId);
         if (await userRef.get().then(doc=>{return !doc.exists})) {
-            const userData = {'email' : email, 'firstName': firstName, 'lastName':lastName, 'age': null, 'sex': null, 'diabetic': null};
+            const userData = {'firstName': null, 'lastName':null, 'age': null, 'sex': null, 'diabetic': null};
             await userRef.set(userData);
             console.log('Added user successfully');
             return true;
