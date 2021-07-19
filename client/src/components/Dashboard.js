@@ -13,6 +13,7 @@ export default function Dashboard() {
   const [data, updateData] = useState();
   const history = useHistory();
   const message = currentUser.email + " successfully logged in";
+  console.log ( message);
 
   const loadUserData = () => {
     const db = new database()
