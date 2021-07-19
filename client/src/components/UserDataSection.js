@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import database from "../firebase/Database";
 import { useAuth } from "../contexts/AuthContext";
-import { Button, Form, Container } from "react-bootstrap";
+import UserDataRegister from "./UserDataRegister";
 
 export default function UserDataSection() {
   const [data, updateData] = useState();
@@ -33,7 +33,7 @@ export default function UserDataSection() {
       const json = await db.getUserInfo(currentUser.uid);
 
       updateData(json);
-      console.log("user data:" + json);
+    //   console.log("user data:" + json);
     };
     getData();
   };
@@ -45,20 +45,8 @@ export default function UserDataSection() {
         <h3>Input User Data</h3>
       </div>
 
-      <div className='w-75'>
-        <Container >
-          <Form>
-            <Form.Group className=" d-flex flex-row" controlId="formBasicEmail">
-              <Form.Label>Email address</Form.Label>
-              <Form.Control type="email" placeholder="Enter email" />
-            </Form.Group>
-
-            <Button variant="primary" type="submit">
-              Submit
-            </Button>
-          </Form>
-        </Container>
-      </div>
+       <UserDataRegister/>
+     
     </section>
   );
 }
