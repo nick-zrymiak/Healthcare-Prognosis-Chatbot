@@ -6,6 +6,7 @@ export default function UserDataRegister() {
   const [lastName, setLastName] = useState("");
   const [gender, setGender] = useState("Male");
   const [age, setAge] = useState(20);
+  const [diabetic, setDiabetic] = useState(19);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -14,6 +15,9 @@ export default function UserDataRegister() {
     console.log(lastName);
     console.log(gender);
     console.log(age);
+    console.log(diabetic);
+
+    
   };
 
   return (
@@ -82,20 +86,6 @@ export default function UserDataRegister() {
           </Col>
         </Form.Group>
 
-        {/* <Row>
-          <Form.Group as={Col} controlId="formGridEmail">
-            <Form.Label>Age</Form.Label>
-            <Form.Control
-              type="number"
-              placeholder="27"
-              onChange={(e) => {
-                setAge(e.target.value);
-              }}
-            />
-          </Form.Group>
-        </Row> */}
-
-        {/* ***** AGE ****  */}
         <Form.Group as={Row} className="mb-3 mt-2">
           <Form.Label as="legend" column sm={2}>
             Age
@@ -106,6 +96,21 @@ export default function UserDataRegister() {
               placeholder="27"
               onChange={(e) => {
                 setAge(e.target.value);
+              }}
+            />
+          </Col>
+        </Form.Group>
+
+        <Form.Group as={Row} className="mb-3 mt-2">
+          <Form.Label as="legend" column sm={2}>
+            Diabetic Reading:
+          </Form.Label>
+          <Col sm={2}>
+            <Form.Control
+              type="float"
+              placeholder="22.1"
+              onChange={(e) => {
+                setDiabetic(e.target.value);
               }}
             />
           </Col>
