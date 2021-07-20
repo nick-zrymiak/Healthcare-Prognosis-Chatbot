@@ -16,12 +16,6 @@ export default function UserDataSection() {
   console.log("Current user:");
   console.log(currentUser);
 
-  // console.log("uid is now: \t" + uid);
-  // console.log(typeof currentUser )
-
-  //   function displayUserData(params) {
-  //       console.log('nothing yet')
-  //   }
 
   useEffect(() => {
     loadUserData();
@@ -33,7 +27,6 @@ export default function UserDataSection() {
       const json = await db.getUserInfo(currentUser.uid);
 
       updateData(json);
-    //   console.log("user data:" + json);
     };
     getData();
   };

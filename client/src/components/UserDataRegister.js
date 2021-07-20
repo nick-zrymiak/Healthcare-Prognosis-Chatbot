@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import { Button, Form, Container, Row, Col } from "react-bootstrap";
+import { useAuth } from "../contexts/AuthContext";
 
 export default function UserDataRegister() {
+  const { currentUser, logout } = useAuth();
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [gender, setGender] = useState("Male");
   const [age, setAge] = useState(20);
   const [diabetic, setDiabetic] = useState(19);
+  const [profilePicture, setProfilePicture] = useState();
+
+  const [imgSrc, setImgSrc] = useState();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,8 +22,10 @@ export default function UserDataRegister() {
     console.log(gender);
     console.log(age);
     console.log(diabetic);
+    // console.log(currentUser);
 
-    
+    //profile picture
+    console.log(profilePicture);
   };
 
   return (
@@ -115,6 +123,61 @@ export default function UserDataRegister() {
             />
           </Col>
         </Form.Group>
+
+        {/* ******adding image buttons***** */}
+        <>
+          <Row>
+            <Form.Group controlId="formFile" className="mb-3">
+              <Form.Label>Upload Profile Picture</Form.Label>
+              <Form.Control
+                className="ms-3"
+                type="file"
+                name="sdf"
+                // id="inputGroupFile01dd"
+                onChange={(e) => {
+                  setProfilePicture(e.target.files[0]);
+                  //dsafds
+                  let displayImage = URL.createObjectURL(e.target.files[0]);
+                  console.log(displayImage);
+                  setImgSrc(displayImage);
+                }}
+              />
+
+<div className="display-img">
+              <img src={imgSrc} style={{
+                      margin: "10px",
+                      width: "250px",
+                      height: "200px"
+                    }}/>
+            </div>
+            </Form.Group>
+
+            
+          </Row>
+
+          {/* <Form.Group as={Row}>
+              <Form.File
+                type="file"
+                className="custom-file-label"
+                id="inputGroupFile01"
+                label={profilePicture}
+                onChange={(e) => setProfilePicture(e.target.files[0].name)}
+                custom
+              />
+            </Form.Group> */}
+          {/* <Form.Group controlId="formFileMultiple" className="mb-3">
+              <Form.Label>Multiple files input example</Form.Label>
+              <Form.Control type="file" multiple />
+            </Form.Group>
+            <Form.Group controlId="formFileSm" className="mb-3">
+              <Form.Label>Small file input example</Form.Label>
+              <Form.Control type="file" size="sm" />
+            </Form.Group>
+            <Form.Group controlId="formFileLg" className="mb-3">
+              <Form.Label>Large file input example</Form.Label>
+              <Form.Control type="file" size="lg" />
+            </Form.Group> */}
+        </>
 
         {/* ***********HANDLE SUBMIT*********** */}
         <Button variant="primary" value="submit" type="submit">
