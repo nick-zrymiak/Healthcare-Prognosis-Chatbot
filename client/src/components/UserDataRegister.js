@@ -10,9 +10,9 @@ export default function UserDataRegister() {
   const [gender, setGender] = useState("Male");
   const [age, setAge] = useState(20);
   const [diabetic, setDiabetic] = useState(19);
-  const [profilePicture, setProfilePicture] = useState();
+  const [profilePicture, setProfilePicture] = useState({ img: "", imgUrl: "" });
 
-  const [imgSrc, setImgSrc] = useState();
+  //   const [imgSrc, setImgSrc] = useState();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -135,24 +135,26 @@ export default function UserDataRegister() {
                 name="sdf"
                 // id="inputGroupFile01dd"
                 onChange={(e) => {
-                  setProfilePicture(e.target.files[0]);
+                  setProfilePicture({img:e.target.files[0]});
                   //dsafds
                   let displayImage = URL.createObjectURL(e.target.files[0]);
                   console.log(displayImage);
-                  setImgSrc(displayImage);
+                //   setImgSrc(displayImage);
+                    setProfilePicture({imgUrl:displayImage});
                 }}
               />
 
-<div className="display-img">
-              <img src={imgSrc} style={{
-                      margin: "10px",
-                      width: "250px",
-                      height: "200px"
-                    }}/>
-            </div>
+              {profilePicture.imgUrl && <div className="display-img">
+                <img
+                  src={profilePicture.imgUrl}
+                  style={{
+                    margin: "10px",
+                    width: "250px",
+                    height: "200px",
+                  }}
+                />
+              </div>}
             </Form.Group>
-
-            
           </Row>
 
           {/* <Form.Group as={Row}>
