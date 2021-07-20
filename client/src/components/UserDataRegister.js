@@ -12,7 +12,6 @@ export default function UserDataRegister() {
   const [diabetic, setDiabetic] = useState(19);
   const [profilePicture, setProfilePicture] = useState({ img: "", imgUrl: "" });
 
-  //   const [imgSrc, setImgSrc] = useState();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -133,12 +132,10 @@ export default function UserDataRegister() {
                 className="ms-3"
                 type="file"
                 name="sdf"
-                // id="inputGroupFile01dd"
                 onChange={(e) => {
                   setProfilePicture({img:e.target.files[0]});
-                  //dsafds
                   let displayImage = URL.createObjectURL(e.target.files[0]);
-                  console.log(displayImage);
+                //   console.log(displayImage);
                 //   setImgSrc(displayImage);
                     setProfilePicture({imgUrl:displayImage});
                 }}
