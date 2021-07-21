@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSpring, animated, config } from "react-spring";
 
-export default function AboutSection() {
+export default function StatsRow() {
   const { number } = useSpring({
     reset: true,
     from: { number: 0 },

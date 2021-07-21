@@ -1,23 +1,19 @@
 import React, { Component } from 'react'
 import NavBarLandingPage from './NavBarLandingPage'
 import IntroSection from './IntroSection';
-import AboutSection from './AboutSection';
+import StatsRow from './StatsRow';
 import ArticleAlpha from "./ArticleAlpha";
 
-export default class LandingPage extends Component {
-    constructor(){
-        super();
-        // console.log('we are at the landing page');
-    }
-    render() {
-        return (
+export default function LandingPage() {
+    return (
+        <div>
             <div>
                 <NavBarLandingPage expand="lg"></NavBarLandingPage>
                 <IntroSection/>
-                <AboutSection/>
+                <StatsRow/>
                 <ArticleAlpha/>
 
-            </div>
-        )
-    }
+            </div>          
+        </div>
+    )
 }
