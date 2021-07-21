@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useSpring, animated, config } from "react-spring";
+import ArticleAlpha from "./ArticleAlpha";
 
 export default function AboutSection() {
   const [flip, set] = useState(false);
@@ -15,9 +16,11 @@ export default function AboutSection() {
 
   return (
     <>
+      <ArticleAlpha/>
       <section className="introSection">
         <animated.div>{number.to((n) => n.toFixed(2))}</animated.div>
       </section>
+
     </>
   );
 }
