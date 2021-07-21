@@ -28,7 +28,7 @@ export default function NavBar() {
       <>
         <Navbar className="fullNavbar" bg="dark" variant="dark">
           <div className="brandName">
-            <Navbar.Brand href="#home">HealthCare Analyser & ChatBot</Navbar.Brand>
+            <Navbar.Brand href="./LandingPage.js">HealthCare Analyser & ChatBot</Navbar.Brand>
           </div>
           <Nav className="navbarLinks mr-auto">
             <Nav.Link href="#bot">Chat Bot</Nav.Link>

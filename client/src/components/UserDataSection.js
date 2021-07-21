@@ -16,7 +16,6 @@ export default function UserDataSection() {
   console.log("Current user:");
   console.log(currentUser);
 
-
   useEffect(() => {
     loadUserData();
   }, []);
@@ -37,9 +36,7 @@ export default function UserDataSection() {
       <div className="textSubSection">
         <h3>Input User Data</h3>
       </div>
-
-       <UserDataRegister/>
-     
+      <UserDataRegister />
     </section>
   );
 }

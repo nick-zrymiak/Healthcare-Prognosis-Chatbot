@@ -1,9 +1,5 @@
 :root {
   --lightGreyBackground: #f2f2f2d3;
-
-
-
-  
   --darkerGreyBackgoud: #f2f2f2ee;
 }
 
@@ -53,6 +49,7 @@ h3 {
   min-width: 100vw;
 
   background-color: var(--lightGreyBackground);
+  min-height: 100vh;
 }
 
 .textSubSection {
@@ -76,6 +73,7 @@ h3 {
 
 /* ****** article css ****** */
 .parent-article {
+  height: 100vh;
   max-width: 100%;
   display: flex;
   flex-direction: row;
@@ -87,7 +85,6 @@ h3 {
   max-width: 60%;
   margin: auto;
   background-color: var(--lightGreyBackground);
-  /* border: 1px solid black; */
 
   display: flex;
   justify-content: space-between;
@@ -111,13 +108,16 @@ h3 {
     max-width: 80%;
     height: 1px;
     background-color: black;
-    /* border-radius: 40%; */
-    /* opacity: 60%; */
-    
+    margin: 10px 0;
+
 }
 
-.right-text-article h5{
+.right-text-article h2{
     margin-top: 10px;
+
+}
+.right-text-article > p {
+  margin-right: 10px;
 }
 
 
@@ -139,4 +139,38 @@ h3 {
   .imgSubSection {
     padding: 0;
   }
+}
+
+
+/* ****** Main Divider ****** */
+.mainDivider{
+  width:  100%;
+  background-color: black;
+  color: greenyellow;
+
+  min-height: 70px;
+
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+}
+
+.statBlock{
+
+  /* border: white 2px solid; */
+}
+
+.statBlock > h3 {
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  padding: 10px;
+}
+
+.anim-number{
+  font-size: 30px;
+  display: inline-block;
+  padding: 10px;
+
 }

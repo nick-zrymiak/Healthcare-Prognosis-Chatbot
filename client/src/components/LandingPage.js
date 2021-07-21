@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import NavBarLandingPage from './NavBarLandingPage'
 import IntroSection from './IntroSection';
 import AboutSection from './AboutSection';
+import ArticleAlpha from "./ArticleAlpha";
 
 export default class LandingPage extends Component {
     constructor(){
@@ -14,6 +15,8 @@ export default class LandingPage extends Component {
                 <NavBarLandingPage expand="lg"></NavBarLandingPage>
                 <IntroSection/>
                 <AboutSection/>
+                <ArticleAlpha/>
+
             </div>
         )
     }
