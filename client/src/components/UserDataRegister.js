@@ -1,34 +1,51 @@
 import React, { useState } from "react";
-import { Button, Form, Container, Row, Col } from "react-bootstrap";
+import { Button, Form, Row, Col, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
+import { useHistory } from "react-router-dom";
+import database from "../firebase/Database"
 
 export default function UserDataRegister() {
-  const { currentUser, logout } = useAuth();
-
+  const { currentUser } = useAuth();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [gender, setGender] = useState("Male");
   const [age, setAge] = useState(20);
   const [diabetic, setDiabetic] = useState(19);
   const [profilePicture, setProfilePicture] = useState({ img: "", imgUrl: "" });
+  const history = useHistory();
 
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("clicked on submit");
+    setLoading(true);
+    setError("");
+
     console.log(firstName);
     console.log(lastName);
     console.log(gender);
     console.log(age);
     console.log(diabetic);
-    // console.log(currentUser);
-
-    //profile picture
     console.log(profilePicture);
+
+    const userId = currentUser.uid;
+    const db = new database()
+    const editData = async () => {
+      const json =  await db.editUserInfo(currentUser.uid, firstName, lastName, gender, age, diabetic, profilePicture);
+      history.push("/dashboard");
+    }
+    try {
+      editData();
+    } catch (error) {
+      setError(error.message);
+    }
+    setLoading(false);
   };
 
   return (
     <div onSubmit={handleSubmit} className="w-75">
+      {error && <Alert variant="danger">{error}</Alert>}
       <Form>
         <Row className="mb-3">
           <Form.Group as={Col} controlId="formGridEmail">
@@ -179,7 +196,7 @@ export default function UserDataRegister() {
         </>
 
         {/* ***********HANDLE SUBMIT*********** */}
-        <Button variant="primary" value="submit" type="submit">
+        <Button disabled={loading} variant="primary" value="submit" type="submit">
           Submit
         </Button>
       </Form>
