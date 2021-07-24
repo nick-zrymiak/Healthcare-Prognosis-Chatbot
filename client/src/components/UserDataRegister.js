@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Form, Row, Col, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import database from "../firebase/Database"
 
 export default function UserDataRegister() {
@@ -15,7 +15,21 @@ export default function UserDataRegister() {
   const [diabetic, setDiabetic] = useState(19);
   const [profilePicture, setProfilePicture] = useState({ img: "", imgUrl: "" });
   const history = useHistory();
+  const [data, updateData] = useState();
 
+  useEffect(() => {
+    loadUserData();
+  }, []);
+
+  const loadUserData = () => {
+    const db = new database();
+    const getData = async () => {
+      const json = await db.getUserInfo(currentUser.uid);
+
+      updateData(json);
+    };
+    getData();
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -52,7 +66,7 @@ export default function UserDataRegister() {
             <Form.Label>First name</Form.Label>
             <Form.Control
               type="text"
-              placeholder="John"
+              placeholder= {data && data.firstName || "John"}
               onChange={(e) => {
                 setFirstName(e.target.value);
               }}
@@ -63,7 +77,7 @@ export default function UserDataRegister() {
             <Form.Label>Last Name</Form.Label>
             <Form.Control
               type="text"
-              placeholder="Smith"
+              placeholder={data && data.lastName || "Smith"}
               onChange={(e) => {
                 setLastName(e.target.value);
               }}
@@ -117,7 +131,7 @@ export default function UserDataRegister() {
           <Col sm={2}>
             <Form.Control
               type="number"
-              placeholder="27"
+              placeholder={data && data.age || "27"}
               onChange={(e) => {
                 setAge(e.target.value);
               }}
@@ -132,7 +146,7 @@ export default function UserDataRegister() {
           <Col sm={2}>
             <Form.Control
               type="float"
-              placeholder="22.1"
+              placeholder={data && data.diabetic || "22.1"}
               onChange={(e) => {
                 setDiabetic(e.target.value);
               }}
@@ -149,6 +163,7 @@ export default function UserDataRegister() {
                 className="ms-3"
                 type="file"
                 name="sdf"
+                placeholder={data && data.profilePicture}
                 onChange={(e) => {
                   setProfilePicture({img:e.target.files[0]});
                   let displayImage = URL.createObjectURL(e.target.files[0]);
@@ -199,6 +214,9 @@ export default function UserDataRegister() {
         <Button disabled={loading} variant="primary" value="submit" type="submit">
           Submit
         </Button>
+        <div className="mt-3">
+          <Link to="/dashboard">Cancel</Link>
+        </div>
       </Form>
     </div>
   );
