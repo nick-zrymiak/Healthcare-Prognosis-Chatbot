@@ -12,6 +12,7 @@ export default function LandingPage() {
                 <IntroSection/>
                 <StatsRow/>
                 <ArticleAlpha/>
+                
 
             </div>          
         </div>

@@ -58,11 +58,14 @@ h3 {
   /* align-items: center; */
   text-align: left;
 }
-.textSubSection > h3 {
-  font-size: 56px;
+.textSubSection > h5{
+  font-size: 2rem;
+  font-weight: bold;
+  /* background-color: blue; */
 }
-.textSubSection > p {
-  font-size: 26px;
+.textSubSection > h4{
+  font-size: 1.3rem;
+  /* background-color: blue; */
 }
 
 .imgSubSection {
@@ -70,6 +73,8 @@ h3 {
   max-width: 100%;
   /* display: block; */
 }
+
+
 
 /* ****** article css ****** */
 .parent-article {
