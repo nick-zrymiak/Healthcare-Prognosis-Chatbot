@@ -17,7 +17,7 @@ export default function NavBar() {
         <Navbar className="fullNavbar" bg="dark" variant="dark">
           <div className="brandName">
             <Navbar.Brand href="./LandingPage.js">
-              HealthCare Analyser & ChatBot{" "}
+              HealthCare Analyser & ChatBot
               <span className='beatingHeart'>
                 <svg
                   // width="108px"
