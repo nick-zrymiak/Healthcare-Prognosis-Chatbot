@@ -8,9 +8,10 @@ export default class IntroSection extends Component {
       <section className="introSection">
         <div className="textSubSection textDecorator">
           <h5>Get Resutls in just 3 easy steps:</h5>
-          <h4>1. Create an Account with Us</h4>
-          <h4>2. Upload Relavent Data</h4>
-          <h4>3. Choose an Analysis Tool</h4>
+          <div className='underline'></div>
+          <h4>&emsp; 1. Create an Account with Us</h4>
+          <h4>&emsp; 2. Upload Relavent Data</h4>
+          <h4>&emsp; 3. Choose an Analysis Tool</h4>
         </div>
 
         <div className="imgSubSection">

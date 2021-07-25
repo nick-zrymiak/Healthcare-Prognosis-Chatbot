@@ -1,7 +1,44 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useSpring, animated, config } from "react-spring";
 
-export default function StatsRow() {
+export default function StatsRow({meVisible}) {
+  const ref = useRef();
+  const isVisible = useOnScreen(ref);
+
+  function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <=
+        (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+  }
+
+  console.count("meVisible");
+  function useOnScreen(ref) {
+    const [isIntersecting, setIntersecting] = useState(false);
+
+    const observer = new IntersectionObserver(([entry]) =>
+      setIntersecting(entry.isIntersecting)
+    );
+
+    useEffect(() => {
+      observer.observe(ref.current);
+      // Remove the observer as soon as the component is unmounted
+      return () => {
+        observer.disconnect();
+      };
+    }, []);
+
+    return isIntersecting;
+  }
+
+
+
+
+
   const { number } = useSpring({
     reset: true,
     from: { number: 0 },
@@ -32,7 +69,7 @@ export default function StatsRow() {
 
   return (
     <>
-      <div className="mainDivider">
+      <div ref={ref} className="mainDivider">
         <div className="statBlock">
           <h3>#Datasets: </h3> 
           <animated.div className='anim-number'>{number.to((n) => n.toFixed(0))}</animated.div>
