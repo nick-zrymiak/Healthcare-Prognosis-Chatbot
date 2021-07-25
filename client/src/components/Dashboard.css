@@ -8,6 +8,10 @@ h5 {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
+}
+body{
+    overflow-x: hidden;
 }
 
 :root {
@@ -53,6 +57,7 @@ p {
 }
 .fieldText{
     font-weight: 500;
+    max-width: 500px;
     /* margin-right: 8rem; */
 }
 

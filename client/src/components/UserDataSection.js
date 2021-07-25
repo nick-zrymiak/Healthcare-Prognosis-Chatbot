@@ -86,7 +86,7 @@ export default function UserDataSection() {
       </div>
 
       <Button variant="link" onClick={handleEditUserData}>
-        <h3 className='clickToEdit'>Click here to edit info</h3>
+        <h3 className='clickToEdit'>Click here to edit personal info</h3>
       </Button>
     </section>
 
