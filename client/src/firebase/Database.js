@@ -22,11 +22,11 @@ export default class Database {
         }
     }
 
-    async editUserInfo(userId, email, firstName, lastName, age, sex, diabetic) {
+    async editUserInfo(userId, firstName, lastName, sex, age, diabetic, profilePicture) {
         const db = firestore;
         const userRef = db.collection('users').doc(userId);
         if (await userRef.get().then(doc => {return doc.exists})) {
-            const userData = {'email' : email, 'firstName': firstName, 'lastName':lastName, 'age': age, 'sex': sex, 'diabetic': diabetic};
+            const userData = {'firstName': firstName, 'lastName':lastName, 'age': age, 'sex': sex, 'diabetic': diabetic, 'profilePicture': profilePicture};
             await userRef.set(userData);
             console.log('modified user data successfully');
             return true;

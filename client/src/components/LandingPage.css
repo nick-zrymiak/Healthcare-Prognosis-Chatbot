@@ -42,7 +42,7 @@ h3 {
 .introSection {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-evenly; 
   align-items: center;
 
   min-height: 94vh;
