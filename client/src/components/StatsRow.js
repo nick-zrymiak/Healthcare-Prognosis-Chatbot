@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useSpring, animated, config } from "react-spring";
 
-export default function StatsRow({meVisible}) {
+export default function StatsRow({ meVisible }) {
   const ref = useRef();
   const isVisible = useOnScreen(ref);
 
@@ -16,7 +16,7 @@ export default function StatsRow({meVisible}) {
     );
   }
 
-  console.count("meVisible");
+  // console.count("meVisible");
   function useOnScreen(ref) {
     const [isIntersecting, setIntersecting] = useState(false);
 
@@ -35,9 +35,9 @@ export default function StatsRow({meVisible}) {
     return isIntersecting;
   }
 
-
-
-
+  /*
+    change number, number2, number3 for altering stats article values
+  */
 
   const { number } = useSpring({
     reset: true,
@@ -71,16 +71,22 @@ export default function StatsRow({meVisible}) {
     <>
       <div ref={ref} className="mainDivider">
         <div className="statBlock">
-          <h3>#Datasets: </h3> 
-          <animated.div className='anim-number'>{number.to((n) => n.toFixed(0))}</animated.div>
+          <h3>#Datasets: </h3>
+          <animated.div className="anim-number">
+            {number.to((n) => n.toFixed(0))}
+          </animated.div>
         </div>
         <div className="statBlock">
           <h3>#Patients: </h3>
-          <animated.div className='anim-number'>{number2.to((n) => n.toFixed(0))}</animated.div>
+          <animated.div className="anim-number">
+            {number2.to((n) => n.toFixed(0))}
+          </animated.div>
         </div>
         <div className="statBlock">
           <h3>#Scans: </h3>
-          <animated.div className='anim-number'>{number3.to((n) => n.toFixed(0))}</animated.div>
+          <animated.div className="anim-number">
+            {number3.to((n) => n.toFixed(0))}
+          </animated.div>
         </div>
       </div>
     </>
