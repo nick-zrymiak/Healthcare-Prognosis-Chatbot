@@ -4,6 +4,8 @@
 }
 
 * {
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
   /* overflow-x: hidden; */
 }
@@ -42,7 +44,7 @@ h3 {
 .introSection {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly; 
+  justify-content: space-evenly;
   align-items: center;
 
   min-height: 94vh;
@@ -50,6 +52,20 @@ h3 {
 
   background-color: var(--lightGreyBackground);
   min-height: 100vh;
+
+  background-image: linear-gradient(
+    to left top,
+    #c53434,
+    #de6784,
+    #e49dc3,
+    #e8d1ec,
+    #ffffff
+  );
+}
+
+.textDecorator {
+  color: #444444;
+  /* text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 2px 1px #EEEEEE, 3px 2px 1px #CCCCCC, 2px 3px 1px #EEEEEE, 4px 3px 1px #CCCCCC, 3px 4px 1px #EEEEEE, 5px 4px 1px #CCCCCC, 4px 5px 1px #EEEEEE, 6px 5px 1px #CCCCCC, 5px 6px 1px #EEEEEE, 7px 6px 1px #CCCCCC; */
 }
 
 .textSubSection {
@@ -58,13 +74,13 @@ h3 {
   /* align-items: center; */
   text-align: left;
 }
-.textSubSection > h5{
-  font-size: 2rem;
+.textSubSection > h5 {
+  font-size: 2.3rem;
   font-weight: bold;
   /* background-color: blue; */
 }
-.textSubSection > h4{
-  font-size: 1.3rem;
+.textSubSection > h4 {
+  font-size: 1.7rem;
   /* background-color: blue; */
 }
 
@@ -73,8 +89,6 @@ h3 {
   max-width: 100%;
   /* display: block; */
 }
-
-
 
 /* ****** article css ****** */
 .parent-article {
@@ -94,9 +108,9 @@ h3 {
   display: flex;
   justify-content: space-between;
 
-  box-shadow: 8px 4px 29px 4px rgba(0,0,0,0.33);
--webkit-box-shadow: 8px 4px 29px 4px rgba(0,0,0,0.33);
--moz-box-shadow: 8px 4px 29px 4px rgba(0,0,0,0.33);
+  box-shadow: 8px 4px 29px 4px rgba(0, 0, 0, 0.33);
+  -webkit-box-shadow: 8px 4px 29px 4px rgba(0, 0, 0, 0.33);
+  -moz-box-shadow: 8px 4px 29px 4px rgba(0, 0, 0, 0.33);
 }
 
 .left-img-article {
@@ -109,22 +123,19 @@ h3 {
   margin-top: 20px;
 }
 
-.article-underline{
-    max-width: 80%;
-    height: 1px;
-    background-color: black;
-    margin: 10px 0;
-
+.article-underline {
+  max-width: 80%;
+  height: 1px;
+  background-color: black;
+  margin: 10px 0;
 }
 
-.right-text-article h2{
-    margin-top: 10px;
-
+.right-text-article h2 {
+  margin-top: 10px;
 }
 .right-text-article > p {
   margin-right: 10px;
 }
-
 
 @media (max-width: 840px) {
   .introSection {
@@ -146,10 +157,9 @@ h3 {
   }
 }
 
-
 /* ****** Main Divider ****** */
-.mainDivider{
-  width:  100%;
+.mainDivider {
+  width: 100%;
   background-color: black;
   color: greenyellow;
 
@@ -161,7 +171,6 @@ h3 {
   flex-direction: row;
 }
 
-
 .statBlock > h3 {
   padding: 0;
   margin: 0;
@@ -169,22 +178,20 @@ h3 {
   padding: 10px;
 }
 
-.anim-number{
+.anim-number {
   font-size: 30px;
   display: inline-block;
   padding: 10px;
-
 }
-
 
 /* ******* Beating Heart ECG Logo ******* */
-.beatingHeart{
+.beatingHeart {
   display: inline;
-  max-width: 50px  !important;
-  height: 30px  !important;
+  max-width: 50px !important;
+  height: 30px !important;
 }
 .beat-loader {
-  stroke: #E76E66;
+  stroke: #e76e66;
   stroke-dasharray: 175;
   stroke-dashoffset: 350;
   -webkit-animation: draw 1.4s linear;

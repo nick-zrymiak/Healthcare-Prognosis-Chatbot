@@ -6,7 +6,7 @@ export default class IntroSection extends Component {
   render() {
     return (
       <section className="introSection">
-        <div className="textSubSection">
+        <div className="textSubSection textDecorator">
           <h5>Get Resutls in just 3 easy steps:</h5>
           <h4>1. Create an Account with Us</h4>
           <h4>2. Upload Relavent Data</h4>
