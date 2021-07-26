@@ -10,22 +10,13 @@
   
   /* ***** Heat Beat in LandingPage.js ****** */
   .heartSvg {
-    /* position: fixed; */
+
     z-index: 900;
     height: 100%;
     width: 100%;
-    /* left: 0; */
-    /* top: 5%; */
-
-    /* border: black 2px solid; */
-
-
 
   }
 
-  
-
-  
   
   .st0{display:none;}
       .st1{fill:#D16B59;}

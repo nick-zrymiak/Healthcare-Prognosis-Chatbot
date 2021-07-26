@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import introImage from "../images/intro-image.png";
+// import introImage from "../images/intro-image.png";
 import LandingHeartBeatAnim from "./LandingHeartBeatAnim";
+import VanillaTilt from 'vanilla-tilt';
 
 export default class IntroSection extends Component {
   render() {
