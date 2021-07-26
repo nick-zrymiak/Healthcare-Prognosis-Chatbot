@@ -42,6 +42,7 @@ h3 {
 
 /* IntroSection */
 .introSection {
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -53,15 +54,58 @@ h3 {
   background-color: var(--lightGreyBackground);
   min-height: 100vh;
 
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
     to left top,
     #c53434,
     #de6784,
     #e49dc3,
     #e8d1ec,
     #ffffff
-  );
+  ); */
+  background-image: linear-gradient(to left, #ffcece, #ffdbcf, #fce9d8, #faf5e6, #fdfff7);
+
+
 }
+
+
+.introSection::before{
+  content: '';
+  position: absolute;
+  /* top: 100%; */
+  margin: auto;
+  /* background-color: rgb(192, 65, 60); */
+  display: block;
+  box-shadow: -26px -19px 10px 2px rgba(29,79,150,0.63);
+  -webkit-box-shadow: -26px -19px 10px 2px rgba(29,79,150,0.63);
+  -moz-box-shadow: -26px -19px 10px 2px rgba(29,79,150,0.63);
+
+  
+  background-image: radial-gradient(circle, #a50202, #8e0006, #770006, #610004, #4b0000);
+  opacity: 0.70;
+
+  width: 100%;
+  height: 100%;
+  z-index:1;
+  background-blend-mode: overlay;
+  clip-path: circle(20% at 75% 50%);
+
+  box-shadow: 0 0 8px 8px red;
+
+
+
+}
+/* .introSection::after{
+  position: fixed;
+  left: 0;
+  top: 0;
+  content: '';
+  background-color: black;
+  width: 100vw;
+  height: 100%;
+  clip-path: circle(65% at 100% -20%);
+} */
+
+
 
 .underline{
   width: 100%;
@@ -94,10 +138,14 @@ h3 {
 
 
 .imgSubSection {
-  padding: 35px;
+  padding: .6rem;
+  z-index: 20;
   max-width: 100%;
+  position: relative;
+  
   /* display: block; */
 }
+
 
 /* ****** article css ****** */
 .parent-article {
@@ -107,7 +155,11 @@ h3 {
   flex-direction: row;
   justify-content: center;
   background-color: var(--lightGreyBackground);
+  position: relative;
+  z-index: 234;
 }
+
+
 
 .article {
   max-width: 60%;

@@ -16,7 +16,7 @@ export default class IntroSection extends Component {
 
         <div className="imgSubSection">
           {/* <img src={introImage} width='280px' alt='brain-intro-img'/> */}
-          <LandingHeartBeatAnim />
+          <LandingHeartBeatAnim  />
         </div>
       </section>
     );
