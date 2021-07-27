@@ -7,8 +7,10 @@ export default class IntroSection extends Component {
   render() {
     return (
       <section className="introSection">
-        <div className="textSubSection textDecorator">
-          <h5>Get Resutls in just 3 easy steps:</h5>
+        <div className="textSubSection textDecorator ">
+          <div className="typing-demo">
+            <h5>Get Resutls in just 3 easy steps:</h5>
+          </div>
           <div className="underline"></div>
           <h4>&emsp; 1. Create an Account with Us</h4>
           <h4>&emsp; 2. Upload Relavent Data</h4>
@@ -22,14 +24,14 @@ export default class IntroSection extends Component {
               backgroundColor: "rgba(160, 17, 17, 0.2)",
               borderRadius: "50%",
             }}
-            options={{ 
-              "max-glare": 23232, 
-              max: 360, 
+            options={{
+              "max-glare": 23232,
+              max: 360,
               scale: 0.1,
               perspective: 2323,
-              transition:        false,
-              glare:             true, 
-              easing:            "cubic-bezier(.03,.98,.52,.99)"
+              transition: false,
+              glare: true,
+              easing: "cubic-bezier(.03,.98,.52,.99)",
             }}
           >
             <LandingHeartBeatAnim />
