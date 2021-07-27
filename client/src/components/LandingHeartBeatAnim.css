@@ -518,11 +518,11 @@
   
   
   
-  
+  /* left ventricle right ventricle */
   @keyframes pulse-grow-top {
     to {
-             -webkit-transform: scale(1.09);
-                     transform: scale(1.09);
+             -webkit-transform: scale(1.05);
+                     transform: scale(1.05);
       
     }
   }
@@ -535,10 +535,11 @@
     }
   }
   
+  /* BOTTOM HEART */
   @keyframes pulse-grow-bottom {
     to {
-             -webkit-transform: scale(1.09);
-                     transform: scale(1.09);
+             -webkit-transform: scale(1.03); 
+                     transform: scale(1.03);
       
     }
   }
@@ -576,9 +577,11 @@
     
   }
   
+  /* veins */
   .st328 {
      stroke:transparent;
-    stroke-width:1px;
+    stroke-width:6;
+    width: 20px;
     fill-opacity:1;
     stroke-dasharray: 2000;
     stroke-dashoffset: 0 ;
