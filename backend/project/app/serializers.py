@@ -1,8 +1,8 @@
-from rest_framwork import serializers
-from .models import App
+from rest_framework import serializers
+from . models import *
 
-class AppSerializer(serializers.ModelSerializer):
+class ReactSerializer(serializers.ModelSerializer):
     class Meta:
-        model = App
-        fields = ('id', 'name', 'email', 'message')
+        model = React
+        fields = ['employee', 'department']
 
