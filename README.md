@@ -2,7 +2,7 @@
 
  Detecting heart problems in the early stage is crucial to save ones' life. Therefore here we attempt to detect a patients risk of heart disease by accessing various user inputs
 
-<br>
+<br> 
 
 ### To run the frontend with npm:
 
