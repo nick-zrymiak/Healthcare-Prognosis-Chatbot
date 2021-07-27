@@ -261,3 +261,28 @@ h3 {
     stroke-dashoffset: 0;
   }
 }
+
+
+/* ****** EDIT USER DATA ****** */
+.editDataSection{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+
+  min-height: 94vh;
+  min-width: 100vw;
+
+  background-color: var(--lightGreyBackground);
+  min-height: 100vh;
+
+  background-image: linear-gradient(
+    to left,
+    #ffcece,
+    #ffdbcf,
+    #fce9d8,
+    #faf5e6,
+    #fdfff7
+  );
+}

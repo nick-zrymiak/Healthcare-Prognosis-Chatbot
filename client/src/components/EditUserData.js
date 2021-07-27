@@ -10,7 +10,7 @@ export default function UserDataSection() {;
   console.log(currentUser);
 
   return (
-    <section className="introSection d-flex flex-column">
+    <section className="editDataSection d-flex flex-column">
       <div className="textSubSection">
         <h3>Input User Data</h3>
       </div>
