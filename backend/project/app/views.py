@@ -1,4 +1,7 @@
-from django.shortcuts import render
+from .models import App
+# from .serializers import AppSerializer
+# from rest_framework import generics
+# from rest_framwork import serializers
 
 from django.http import HttpResponse
 
