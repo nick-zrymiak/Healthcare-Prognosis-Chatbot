@@ -1,6 +1,9 @@
 :root {
   --lightGreyBackground: #f2f2f2d3;
   --darkerGreyBackgoud: #f2f2f2ee;
+
+  
+  --redSampleColor: #a01111; 
 }
 
 * {
@@ -65,7 +68,7 @@ h3 {
 }
 
 .introSection::before {
-  content: "";
+  /* content: ""; */
   position: absolute;
   /* top: 100%; */
   margin: auto;
@@ -285,4 +288,8 @@ h3 {
     #faf5e6,
     #fdfff7
   );
+}
+
+.twitBackground{
+  background-color: blue;
 }
