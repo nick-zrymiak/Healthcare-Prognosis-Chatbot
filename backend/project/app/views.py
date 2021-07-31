@@ -9,7 +9,7 @@ from rest_framework.response import Response
 from django.http import HttpResponse
 
 def index(request):
-        return HttpResponse("HTTP RESPONSE FROM BACKENDAPP")
+        return HttpResponse("new HTTP RESPONSE FROM BACKENDAPP")
 def info(request):
         return HttpResponse("this is another info")
 
