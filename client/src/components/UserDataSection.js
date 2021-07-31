@@ -32,8 +32,8 @@ export default function UserDataSection() {
 
   return (
     <section className="displayUserInfo">
-      <h3>Personal info</h3>
-      <p>Basic info, like your name photo that is regirsted with us</p>
+      <h3>Personal Information</h3>
+      <p>Basic info, like your name photo that is registered with us</p>
 
       <div className="MainInfoContainer">
         <div className="rowCard">

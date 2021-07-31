@@ -52,7 +52,11 @@ export default function Dashboard() {
               {data && data.firstName && "Hello " + data.firstName}
             </Card.Body>
           </Card>
-          <Button variant="link" onClick={handleLogout}>
+        </div>
+      </Container>
+      <UserDataSection></UserDataSection>
+
+      <Button variant="link" onClick={handleLogout}>
             Log Out
           </Button>
           <Button
@@ -61,13 +65,8 @@ export default function Dashboard() {
               history.push("/");
             }}
           >
-            <h3>Go To Landing Page</h3>
+            <h3>Go Back To Landing Page</h3>
           </Button>
-        </div>
-      </Container>
-      <UserDataSection></UserDataSection>
-
-      
     </div>
   );
 }
