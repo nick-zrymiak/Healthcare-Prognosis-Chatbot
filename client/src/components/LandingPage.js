@@ -3,8 +3,26 @@ import NavBarLandingPage from "./NavBarLandingPage";
 import IntroSection from "./IntroSection";
 import StatsRow from "./StatsRow";
 import ArticleAlpha from "./ArticleAlpha";
+import axios from "axios";
 
 export default function LandingPage() {
+
+  useEffect(() => {
+    console.log('useEfect from landing page');
+
+    axios.get("http://localhost:8000/")
+      .then(res =>{
+        res = res.data;
+        return JSON.stringify(res);
+      })
+      .then(output =>{
+        console.log('output is:' + output);
+      })
+    
+    return () => {
+
+    }
+  }, [])
 
   return (
     <div>
