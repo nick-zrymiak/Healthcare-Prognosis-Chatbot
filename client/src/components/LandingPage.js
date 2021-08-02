@@ -8,9 +8,9 @@ import axios from "axios";
 export default function LandingPage() {
 
   useEffect(() => {
-    console.log('useEfect from landing page');
+    console.log('useEffect from landing page');
 
-    axios.get("http://localhost:8000/")
+    axios.get("http://localhost:8000/api/")
       .then(res =>{
         res = res.data;
         return JSON.stringify(res);

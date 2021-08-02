@@ -2,8 +2,7 @@
   --lightGreyBackground: #f2f2f2d3;
   --darkerGreyBackgoud: #f2f2f2ee;
 
-  
-  --redSampleColor: #a01111; 
+  --redSampleColor: #a01111;
 }
 
 * {
@@ -71,7 +70,7 @@ h3 {
 
 .typing-demo {
   width: 100%;
-  animation: typing 2s steps(23), blink .5s step-end infinite alternate;
+  animation: typing 2s steps(23), blink 0.5s step-end infinite alternate;
   white-space: nowrap;
   overflow: hidden;
   border-right: 2px solid;
@@ -82,13 +81,13 @@ h3 {
 
 @keyframes typing {
   from {
-    width: 0
+    width: 0;
   }
 }
-    
+
 @keyframes blink {
   50% {
-    border-color: transparent
+    border-color: transparent;
   }
 }
 
@@ -141,7 +140,7 @@ h3 {
   /* align-items: center; */
   text-align: left;
 }
-.textSubSection  h5 {
+.textSubSection h5 {
   font-size: 2.3rem;
   font-weight: bold;
   /* background-color: blue; */
@@ -290,9 +289,8 @@ h3 {
   }
 }
 
-
 /* ****** EDIT USER DATA ****** */
-.editDataSection{
+.editDataSection {
   position: relative;
   display: flex;
   flex-direction: row;
@@ -315,6 +313,6 @@ h3 {
   );
 }
 
-.twitBackground{
+.twitBackground {
   background-color: blue;
 }
