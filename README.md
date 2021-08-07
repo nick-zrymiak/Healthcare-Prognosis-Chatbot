@@ -54,4 +54,4 @@ For more details on how to set up python virtual environment using VS-Code: http
 
 ## Contributers:
 
-### Awshaf | Nick | Adam | Laksh
+### Awshaf | Nick | Adam | Laksh | Hazem
