@@ -1,127 +1,85 @@
-# base chatbot system from: https://www.youtube.com/watch?v=wypVcNIH6D4&list=PLzMcBGfZo4-ndH9FoC4YWHGXG5RZekt-Q&index=1&ab_channel=TechWithTim
-# data from: https://www.kaggle.com/neelima98/disease-prediction-using-machine-learning?select=Training.csv
+# semantic similarity: https://towardsdatascience.com/how-to-rank-text-content-by-semantic-similarity-4d2419a84c32
 
-import nltk
-from nltk.stem.lancaster import LancasterStemmer
-import random
+import warnings
 import numpy as np
-import tensorflow as tf
-from tensorflow.python.framework import ops
-import tflearn
-import pickle
-import os
+import nltk
 import pandas as pd
+from tensorflow import keras
 
-def bag_of_words(s, words):
-  bag = [0 for _ in range(len(words))]
-  stems = nltk.word_tokenize(s)
-  stems = [stemmer.stem(word.lower()) for word in stems]
+import gensim.downloader as api
+from gensim.utils import simple_preprocess
+from gensim.corpora import Dictionary
+from gensim.models import TfidfModel
+from gensim.models import WordEmbeddingSimilarityIndex
+from gensim.similarities import SparseTermSimilarityMatrix
+from gensim.similarities import SoftCosineSimilarity
 
-  for stem in stems:
-    for i, word in enumerate(words):
-      if word == stem:
-        bag[i] = 1
+warnings.filterwarnings('ignore')
 
-  return np.array(bag)
-
-def chat():
-  print('Bot: What are your symptoms?')
-  while True:
-    response = input('You: ')
-
-    if response.lower() == 'quit':
-      break
-
-    tag_probabilities = model.predict([bag_of_words(response, words)])[0]
-
-    possible_symptoms = []
-    for i, probability in enumerate(tag_probabilities):
-      if probability > .04:
-        possible_symptoms.append(labels[i])
-
-    if possible_symptoms:
-      potential_messages = causes
-      print('Bot: You may have', random.choice(potential_messages))
-    else:
-      print('Bot: I didn\'t get that, try again.')
-
-if __name__ == '__main__':
-    nltk.download('punkt')
-    
-    training = pd.read_csv('./data/Training.csv')
-    symptoms = training.drop('prognosis', axis=1)
-    features = symptoms.columns
-    symptoms = []
-    causes = training['prognosis']
-    causes = causes.unique().tolist()
-    
-    for f in features:
-      f = f.replace('_', ' ')
-      f = f.replace('.1', '')
-      f = f.replace(' (typhos)', '')
-      symptoms.append(f)
-    
-    stemmer = LancasterStemmer()
-    
+def preprocess(text):
     try:
-      with open('model.pickle', 'rb') as f:
-        words, labels, training, output = pickle.load(f)
-    except:
-      words = []
-      labels = symptoms
-      docs_x = []
-      docs_y = []
+        stopwords = set(nltk.corpus.stopwords.words('english'))
+    except LookupError:
+        nltk.download('stopwords')
+        stopwords = set(nltk.corpus.stopwords.words('english'))
     
-      for pattern in symptoms:
-        pattern_words = nltk.word_tokenize(pattern)
-        words.extend(pattern_words)
-        docs_x.append(pattern_words)
-        docs_y.append(pattern)
+    return [token for token in simple_preprocess(text, min_len=0, max_len=float('inf')) if token not in stopwords]
+
+def clean_symptoms(raw_symptoms, symptoms):
+    for rs in raw_symptoms:
+        rs = rs.replace('_', ' ')
+        rs = rs.replace('.1', '')
+        rs = rs.replace(' (typhos)', '')
+        symptoms.append(rs)
+
+
+def get_doc_similarity_scores(user_msg, corpus, glove):
+    similarity_index = WordEmbeddingSimilarityIndex(glove)
+    dictionary = Dictionary(corpus + [user_msg])
+    tfidf = TfidfModel(dictionary=dictionary)
+    similarity_matrix = SparseTermSimilarityMatrix(similarity_index, dictionary, tfidf, nonzero_limit=None)
+    user_msg_tf = tfidf[dictionary.doc2bow(user_msg)]
+    index = SoftCosineSimilarity(
+        tfidf[[dictionary.doc2bow(text) for text in corpus]], 
+        similarity_matrix)
+    doc_similarity_scores = index[user_msg_tf]
+    return doc_similarity_scores, dictionary, similarity_matrix
+
+def chat(user_msg):
+    train = pd.read_csv('./data/Training.csv')
+    raw_symptoms = train.drop('prognosis', axis=1)
+    raw_symptoms = raw_symptoms.columns
+    symptoms = []
     
-      words = [stemmer.stem(word.lower()) for word in words if word != '?']
-      words = sorted(list(set(words))) # set removes duplicates
-      labels = sorted(labels)
-      training = []
-      output = []
-      out_empty = [0 for _ in range(len(labels))]
+    clean_symptoms(raw_symptoms, symptoms)
+    causes = train['prognosis'].unique()
+    corpus = [preprocess(symptom) for symptom in symptoms]
+    user_msg = preprocess(user_msg)
     
-      for x, doc in enumerate(docs_x):
-        bag = []
-        doc_words = [stemmer.stem(word) for word in doc]
+    if 'glove' not in locals():
+        glove = api.load("glove-wiki-gigaword-50")
+        
+    doc_similarity_scores, dictionary, similarity_matrix = get_doc_similarity_scores(user_msg, corpus, glove)
+    sorted_indexes = np.argsort(doc_similarity_scores)[::-1]
     
-        for word in words:
-          if word in doc_words:
-            bag.append(1)
-          else:
-            bag.append(0)
+    symptoms = np.zeros(len(raw_symptoms))
+    for i in sorted_indexes:
+        if doc_similarity_scores[i] > .5:
+          symptoms[i] = 1
+    symptoms = [symptoms]
     
-        output_row = out_empty[:]
-        output_row[labels.index(docs_y[x])] = 1
-        training.append(bag)
-        output.append(output_row)
+    prognosis_model = keras.models.load_model('prognosis_model.h5')
+    cause_probabilities = prognosis_model.predict(np.array(symptoms))
+    cause_probabilities = cause_probabilities[0]
+    
+    probable_causes = cause_probabilities.argsort()[::-1]
+    bot_msg = 'The following may be cause(s) of your symptom(s) with corresponding chances: '
+    
+    for cause in probable_causes:
+      prob = cause_probabilities[cause]
       
-      training = np.array(training)
-      output = np.array(output)
-    
-      with open('model.pickle', 'wb') as f:
-        pickle.dump((words, labels, training, output), f)
-    
-    # predict tag
-    tf.compat.v1.reset_default_graph()
-    net = tflearn.input_data(shape=[None, len(training[0])])
-    net = tflearn.fully_connected(net, 8)
-    net = tflearn.fully_connected(net, 8)
-    net = tflearn.fully_connected(net, len(output[0]), activation='softmax')
-    net = tflearn.regression(net)
-    
-    model = tflearn.DNN(net)
-    
-    model_is_saved = os.path.exists('./data/tag_probabilities.tflearn.meta')
-    
-    if model_is_saved:
-      model.load('./data/tag_probabilities.tflearn')
-    else:
-      model.fit(training, output, n_epoch=1000, batch_size=8, show_metric=True)
-      model.save('./data/tag_probabilities.tflearn')
-    
-    chat()
+      if prob > .05:
+        bot_msg += '\n\t' + causes[cause] + ': ' + str(prob*100) + '%'
+        
+    bot_msg = 'I didn\'t get that, try again.' if bot_msg == '' else bot_msg
+    return bot_msg

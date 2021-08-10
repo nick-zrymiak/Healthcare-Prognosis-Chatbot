@@ -1,2 +1,0 @@
-model_checkpoint_path: "/content/tag_probabilities.tflearn"
-all_model_checkpoint_paths: "/content/tag_probabilities.tflearn"
