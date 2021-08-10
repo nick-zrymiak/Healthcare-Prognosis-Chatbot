@@ -1,0 +1,4 @@
+numpy~=1.18
+scikit-learn~=0.22
+gensim~=3.8
+nltk~=3.4
