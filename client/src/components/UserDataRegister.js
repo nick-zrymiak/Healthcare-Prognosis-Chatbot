@@ -185,29 +185,6 @@ export default function UserDataRegister() {
               </div>}
             </Form.Group>
           </Row>
-
-          {/* <Form.Group as={Row}>
-              <Form.File
-                type="file"
-                className="custom-file-label"
-                id="inputGroupFile01"
-                label={profilePicture}
-                onChange={(e) => setProfilePicture(e.target.files[0].name)}
-                custom
-              />
-            </Form.Group> */}
-          {/* <Form.Group controlId="formFileMultiple" className="mb-3">
-              <Form.Label>Multiple files input example</Form.Label>
-              <Form.Control type="file" multiple />
-            </Form.Group>
-            <Form.Group controlId="formFileSm" className="mb-3">
-              <Form.Label>Small file input example</Form.Label>
-              <Form.Control type="file" size="sm" />
-            </Form.Group>
-            <Form.Group controlId="formFileLg" className="mb-3">
-              <Form.Label>Large file input example</Form.Label>
-              <Form.Control type="file" size="lg" />
-            </Form.Group> */}
         </>
 
         {/* ***********HANDLE SUBMIT*********** */}

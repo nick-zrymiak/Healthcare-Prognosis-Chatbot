@@ -1,9 +1,13 @@
 :root {
   --lightGreyBackground: #f2f2f2d3;
   --darkerGreyBackgoud: #f2f2f2ee;
+
+  --redSampleColor: #a01111;
 }
 
 * {
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
   /* overflow-x: hidden; */
 }
@@ -40,16 +44,94 @@ h3 {
 
 /* IntroSection */
 .introSection {
+  position: relative;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly; 
+  justify-content: space-evenly;
   align-items: center;
+
+  font-family: monospace;
 
   min-height: 94vh;
   min-width: 100vw;
 
   background-color: var(--lightGreyBackground);
   min-height: 100vh;
+
+  background-image: linear-gradient(
+    to left,
+    #ffcece,
+    #ffdbcf,
+    #fce9d8,
+    #faf5e6,
+    #fdfff7
+  );
+}
+
+.typing-demo {
+  width: 100%;
+  animation: typing 2s steps(23), blink 0.5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid;
+  padding: 2px 0px;
+  font-family: monospace;
+  /* font-size: 2em; */
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.introSection::before {
+  /* content: ""; */
+  position: absolute;
+  /* top: 100%; */
+  margin: auto;
+  /* background-color: rgb(192, 65, 60); */
+  display: block;
+  box-shadow: -26px -19px 10px 2px rgba(29, 79, 150, 0.63);
+  -webkit-box-shadow: -26px -19px 10px 2px rgba(29, 79, 150, 0.63);
+  -moz-box-shadow: -26px -19px 10px 2px rgba(29, 79, 150, 0.63);
+
+  background-image: radial-gradient(
+    circle,
+    #a50202,
+    #8e0006,
+    #770006,
+    #610004,
+    #4b0000
+  );
+  opacity: 0.7;
+
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-blend-mode: overlay;
+  clip-path: circle(20% at 75% 50%);
+
+  box-shadow: inset 0 0 10px #000000;
+}
+
+.underline {
+  width: 100%;
+  height: 3px;
+  background-color: black;
+  margin: 0.3rem 0rem;
+  /* border-left: blue; */
+  border-radius: 50%;
+}
+.textDecorator {
+  color: #444444;
+  /* text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 2px 1px #EEEEEE, 3px 2px 1px #CCCCCC, 2px 3px 1px #EEEEEE, 4px 3px 1px #CCCCCC, 3px 4px 1px #EEEEEE, 5px 4px 1px #CCCCCC, 4px 5px 1px #EEEEEE, 6px 5px 1px #CCCCCC, 5px 6px 1px #EEEEEE, 7px 6px 1px #CCCCCC; */
 }
 
 .textSubSection {
@@ -58,16 +140,22 @@ h3 {
   /* align-items: center; */
   text-align: left;
 }
-.textSubSection > h3 {
-  font-size: 56px;
+.textSubSection h5 {
+  font-size: 2.3rem;
+  font-weight: bold;
+  /* background-color: blue; */
 }
-.textSubSection > p {
-  font-size: 26px;
+.textSubSection > h4 {
+  font-size: 1.7rem;
+  /* background-color: blue; */
 }
 
 .imgSubSection {
-  padding: 35px;
+  padding: 0.6rem;
+  z-index: 20;
   max-width: 100%;
+  position: relative;
+
   /* display: block; */
 }
 
@@ -79,6 +167,8 @@ h3 {
   flex-direction: row;
   justify-content: center;
   background-color: var(--lightGreyBackground);
+  position: relative;
+  z-index: 234;
 }
 
 .article {
@@ -89,9 +179,9 @@ h3 {
   display: flex;
   justify-content: space-between;
 
-  box-shadow: 8px 4px 29px 4px rgba(0,0,0,0.33);
--webkit-box-shadow: 8px 4px 29px 4px rgba(0,0,0,0.33);
--moz-box-shadow: 8px 4px 29px 4px rgba(0,0,0,0.33);
+  box-shadow: 8px 4px 29px 4px rgba(0, 0, 0, 0.33);
+  -webkit-box-shadow: 8px 4px 29px 4px rgba(0, 0, 0, 0.33);
+  -moz-box-shadow: 8px 4px 29px 4px rgba(0, 0, 0, 0.33);
 }
 
 .left-img-article {
@@ -104,22 +194,19 @@ h3 {
   margin-top: 20px;
 }
 
-.article-underline{
-    max-width: 80%;
-    height: 1px;
-    background-color: black;
-    margin: 10px 0;
-
+.article-underline {
+  max-width: 80%;
+  height: 1px;
+  background-color: black;
+  margin: 10px 0;
 }
 
-.right-text-article h2{
-    margin-top: 10px;
-
+.right-text-article h2 {
+  margin-top: 10px;
 }
 .right-text-article > p {
   margin-right: 10px;
 }
-
 
 @media (max-width: 840px) {
   .introSection {
@@ -141,10 +228,9 @@ h3 {
   }
 }
 
-
 /* ****** Main Divider ****** */
-.mainDivider{
-  width:  100%;
+.mainDivider {
+  width: 100%;
   background-color: black;
   color: greenyellow;
 
@@ -156,11 +242,6 @@ h3 {
   flex-direction: row;
 }
 
-.statBlock{
-
-  /* border: white 2px solid; */
-}
-
 .statBlock > h3 {
   padding: 0;
   margin: 0;
@@ -168,9 +249,70 @@ h3 {
   padding: 10px;
 }
 
-.anim-number{
+.anim-number {
   font-size: 30px;
   display: inline-block;
   padding: 10px;
+}
 
+/* ******* Beating Heart ECG Logo ******* */
+.beatingHeart {
+  display: inline;
+  max-width: 50px !important;
+  height: 30px !important;
+}
+.beat-loader {
+  stroke: #e76e66;
+  stroke-dasharray: 175;
+  stroke-dashoffset: 350;
+  -webkit-animation: draw 1.4s linear;
+  -moz-animation: draw 1.4s linear;
+  animation: draw 1.4s linear;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@-moz-keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* ****** EDIT USER DATA ****** */
+.editDataSection {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+
+  min-height: 94vh;
+  min-width: 100vw;
+
+  background-color: var(--lightGreyBackground);
+  min-height: 100vh;
+
+  background-image: linear-gradient(
+    to left,
+    #ffcece,
+    #ffdbcf,
+    #fce9d8,
+    #faf5e6,
+    #fdfff7
+  );
+}
+
+.twitBackground {
+  background-color: blue;
 }
