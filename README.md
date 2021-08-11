@@ -51,6 +51,7 @@ Open http://localhost:5000 to view it in the browser.
     	"deactivate"
 
 For more details on how to set up python virtual environment using VS-Code: https://code.visualstudio.com/docs/python/python-tutorial
+https://www.jetbrains.com/help/pycharm/pipenv.html
 
 ## Contributers:
 
