@@ -16,7 +16,7 @@ export default function LandingPage() {
         return JSON.stringify(res);
       })
       .then(output =>{
-        console.log('output is:' + output); 
+        console.log('output is:' + output);  
       })
     
     return () => {
