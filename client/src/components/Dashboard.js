@@ -6,8 +6,10 @@ import { Container } from "react-bootstrap";
 import NavBarDashboard from "./NavBarDashboard";
 import database from "../firebase/Database";
 import UserDataSection from "./UserDataSection";
+import axios from 'axios';
 
 export default function Dashboard() {
+  const [chatData, setChatData] = useState('');
   const { currentUser, logout } = useAuth();
   const [error, setError] = useState("");
   const [data, updateData] = useState();
@@ -26,6 +28,22 @@ export default function Dashboard() {
 
   const handleSubmit = (e) =>{
     e.preventDefault();
+    setChatData('chatData changed');
+
+    // make an axios call
+    axios.
+      get('http://localhost:8000/api/user')
+      .then(response =>{
+        console.log(response.data);
+      })
+      .catch( error=>{
+        console.log('catched error:', error);
+      })
+    // fetch data from post
+    // render response
+
+    
+
     console.log('submit button clicked')
     
   }
@@ -81,6 +99,7 @@ export default function Dashboard() {
             SUBMIT
           </Button>
         </Form>
+        {chatData.length>0? <h1>chatData</h1>: <h1></h1>}
       </Container>
 
       <UserDataSection></UserDataSection>
