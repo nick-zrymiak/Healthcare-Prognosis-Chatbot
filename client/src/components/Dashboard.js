@@ -32,7 +32,15 @@ export default function Dashboard() {
 
     // make an axios call
     axios.
-      get('http://localhost:8000/api/user')
+      post('http://localhost:8000/api/user',  {
+        method: 'POST',
+        body: 'body text questionary',
+        headers: {
+            // 'X-Api-Key': API_KEY,
+            'Content-Type': 'application/json'
+            // Other possible headers
+        }
+    })
       .then(response =>{
         console.log(response.data);
       })

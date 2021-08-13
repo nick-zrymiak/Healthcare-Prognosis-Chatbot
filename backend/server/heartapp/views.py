@@ -6,24 +6,18 @@ from .models import User
 
 from django.http import HttpResponse
 
+from django.views.decorators.csrf import csrf_exempt
+
 
 
 def index(request):
    response = User.objects.all()
    return HttpResponse(response)
 
-
+@csrf_exempt 
 def runChat(request):
-   # print [1,2], '\n', [3,4]
-   # [1,2]
-   # [3,4]
-   response = 'runchat function ran'
-   return HttpResponse(response)
+   if request.method == 'POST':
+      response = 'post maybe to the backend'
+      return HttpResponse(response)
+   return HttpResponse('else response')
 
-# In Javascript:
-
-# console.log([1,2],'\n',[3,4])
-# prints
-
-# [1,2] '\n' [3,4
-   # var postreponse = User.objects.all()
