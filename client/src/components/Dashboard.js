@@ -24,6 +24,12 @@ export default function Dashboard() {
     getData();
   };
 
+  const handleSubmit = (e) =>{
+    e.preventDefault();
+    console.log('submit button clicked')
+    
+  }
+
   async function handleLogout() {
     setError("");
     try {
@@ -42,21 +48,17 @@ export default function Dashboard() {
     <div>
       <NavBarDashboard expand="lg"></NavBarDashboard>
       <Container
-        className="d-flex align-items-center justify-content-center"
-        style={{ minHeight: "100vh" }}
+        // className="d-flex align-items-center justify-content-sr"
+        style={{ minHeight: "100vh", paddingTop:'250px' }}
       >
-        <div className="w-100" style={{ maxWidth: "400px" }}>
+        {/* <div className="w-100" style={{ maxWidth: "400px" }}>
           <Card>
             <Card.Body>
               {currentUser && <Alert variant="success">{message}</Alert>}
               {data && data.firstName && "Hello " + data.firstName}
             </Card.Body>
           </Card>
-        </div>
-      </Container>
-      <UserDataSection></UserDataSection>
-
-      <Button variant="link" onClick={handleLogout}>
+          <Button variant="link" onClick={handleLogout}>
             Log Out
           </Button>
           <Button
@@ -67,6 +69,21 @@ export default function Dashboard() {
           >
             <h3>Go Back To Landing Page</h3>
           </Button>
+        </div> */}
+        {/* <h3>Go Back To Landing Page</h3> */}
+        <Form onSubmit={handleSubmit}>
+          <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+            <Form.Label>Type in your symptoms:</Form.Label>
+            <Form.Control as="textarea" rows={1} placeholder='weakness fever cold' />
+           
+          </Form.Group>
+          <Button variant="link" type="submit">
+            SUBMIT
+          </Button>
+        </Form>
+      </Container>
+
+      <UserDataSection></UserDataSection>
     </div>
   );
 }
