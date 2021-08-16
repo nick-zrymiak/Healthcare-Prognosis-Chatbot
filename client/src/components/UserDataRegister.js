@@ -35,18 +35,10 @@ export default function UserDataRegister() {
     e.preventDefault();
     setLoading(true);
     setError("");
-
-    console.log(firstName);
-    console.log(lastName);
-    console.log(gender);
-    console.log(age);
-    console.log(diabetic);
-    console.log(profilePicture);
-
     const userId = currentUser.uid;
     const db = new database()
     const editData = async () => {
-      const json =  await db.editUserInfo(currentUser.uid, firstName, lastName, gender, age, diabetic, profilePicture);
+      const json = await db.editUserInfo(currentUser.uid, firstName, lastName, gender, age, diabetic, profilePicture);
       history.push("/dashboard");
     }
     try {
@@ -66,7 +58,7 @@ export default function UserDataRegister() {
             <Form.Label>First name</Form.Label>
             <Form.Control
               type="text"
-              placeholder= {data && data.firstName || "John"}
+              placeholder={data && data.firstName || "John"}
               onChange={(e) => {
                 setFirstName(e.target.value);
               }}
@@ -99,7 +91,7 @@ export default function UserDataRegister() {
               onChange={(e) => {
                 setGender("Male");
               }}
-              //   checked="Male"
+            //   checked="Male"
             />
             <Form.Check
               type="radio"
@@ -165,11 +157,11 @@ export default function UserDataRegister() {
                 name="sdf"
                 placeholder={data && data.profilePicture}
                 onChange={(e) => {
-                  setProfilePicture({img:e.target.files[0]});
+                  setProfilePicture({ img: e.target.files[0] });
                   let displayImage = URL.createObjectURL(e.target.files[0]);
-                //   console.log(displayImage);
-                //   setImgSrc(displayImage);
-                    setProfilePicture({imgUrl:displayImage});
+                  //   console.log(displayImage);
+                  //   setImgSrc(displayImage);
+                  setProfilePicture({ imgUrl: displayImage });
                 }}
               />
 
