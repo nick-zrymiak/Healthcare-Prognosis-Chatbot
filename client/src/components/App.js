@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
 import RecoverPassword from "./RecoverPassword";
 import LandingPage from "./LandingPage";
+import LDAHeartDiseaseSection from "./LDAHeartDiseaseToolSection";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/recover-password" component={RecoverPassword} />
           <PrivateRoute exact path="/dashboard" component={Dashboard} />
           <PrivateRoute exact path="/editUserData" component={EditUserData} />
+          <PrivateRoute exact path="/LDAHeartDisease" component={LDAHeartDiseaseSection} />
           <Route path="/" component={LandingPage} />
         </Switch>
       </AuthProvider>

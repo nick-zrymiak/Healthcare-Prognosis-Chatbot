@@ -29,7 +29,7 @@ export default function NavBar() {
         <Navbar className="fullNavbar" bg="dark" variant="dark">
           <div className="brandName">
             <Navbar.Brand href="./LandingPage.js">HealthCare Analyser & ChatBot
-            <span className='beatingHeart'>
+              <span className='beatingHeart'>
                 <svg
                   // width="108px"
                   // height="128px"
@@ -62,10 +62,10 @@ export default function NavBar() {
               </span>
             </Navbar.Brand>
           </div>
-          
+
           <Nav className="navbarLinks mr-auto">
             <Nav.Link href="#bot">Chat Bot</Nav.Link>
-            <Nav.Link href="#heart">Heart Disease Tool</Nav.Link>
+            <Nav.Link href="/LDAHeartDisease">Heart Disease Tool</Nav.Link>
             <Nav.Link href="#mri">MRI Analysis Tool</Nav.Link>
             <Nav.Link href="#audio">Audio Analysis Tool</Nav.Link>
 

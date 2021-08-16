@@ -292,7 +292,7 @@ export default function LDAHeartDiseaseSection() {
             Submit
           </Button>
           <div className="mt-3">
-            <Link to="/dashboard">Cancel</Link>
+            <Link to="/dashboard">Back To Dashboard</Link>
           </div>
         </Form>
       </div>
