@@ -2,15 +2,18 @@ import React, { useState, useEffect } from "react";
 import { Button, Form, Row, Col, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
-import database from "../firebase/Database"
+import database from "../firebase/Database";
+import axios from "axios";
+import NavBarDashboard from "./NavBarDashboard";
 
 export default function LDAHeartDiseaseSection() {
+  const [ldaResult, setLdaResult]= useState('');
   const { currentUser } = useAuth();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   // 0 represents female, 1 represents male
-  const [gender, setGender] = useState(1);
   const [age, setAge] = useState(20);
+  const [gender, setGender] = useState(1);
   //0: typical angina, 1: atypical angina, 2: non-anginal pain, 3: no pain
   const [chestPain, setChestPain] = useState(3);
   const [restingBloodPressure, setRestingBloodPressure] = useState(140);
@@ -26,6 +29,9 @@ export default function LDAHeartDiseaseSection() {
 
   const history = useHistory();
   const [data, updateData] = useState();
+
+  const sendData2= [age,gender,chestPain,restingBloodPressure,serumCholestoral,lowBloodSugar,electrocardiograph,maxHeartRate,
+  exerciseInducedAngina,STDepresionDifference,STSegmentSlope,majorVesselsColored,thal]
 
   useEffect(() => {
     loadUserData();
@@ -51,6 +57,20 @@ export default function LDAHeartDiseaseSection() {
       console.log(chestPain)
       console.log(STDepresionDifference)
       console.log(thal)
+
+      //make the post request
+      axios.
+      post('http://localhost:8000/api/lda',  sendData2)
+      .then(response =>{
+        console.log('\tserver responded with:')
+        console.log(response.data);
+        setLdaResult(response.data);
+        // setChatData(response.data);
+      })
+      .catch( error=>{
+        console.log('baal error:', error);
+      })
+
     }
     try {
       runLDATool();
@@ -62,12 +82,13 @@ export default function LDAHeartDiseaseSection() {
 
   return (
     <section className="editDataSection d-flex flex-column">
-      <div className="textSubSection">
+      <NavBarDashboard/>
+      <div className="textSubSection p-3 mt-2">
         <h3>LDA Heart Disease Tool</h3>
       </div>
       <div onSubmit={handleSubmit} className="w-75">
         {error && <Alert variant="danger">{error}</Alert>}
-        <Form>
+        <Form >
           <Form.Group as={Row} className="mb-3 mt-2">
             <Form.Label as="legend" column sm={2}>
               Chest Pain (0: typical angina, 1: atypical angina, 2: non-anginal pain, 3: no pain)
@@ -291,8 +312,10 @@ export default function LDAHeartDiseaseSection() {
           <Button disabled={loading} variant="primary" value="submit" type="submit">
             Submit
           </Button>
+          <div></div>
+          {ldaResult.length > 0?<h3>{ldaResult}</h3>:<h3>Click SUBMIT button to view analysis result</h3>}
           <div className="mt-3">
-            <Link to="/dashboard">Cancel</Link>
+            <Link to="/dashboard">Back To Dashboard</Link>
           </div>
         </Form>
       </div>

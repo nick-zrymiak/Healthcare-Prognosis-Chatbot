@@ -22,7 +22,7 @@ def analysisDecision(patientVals):
     if(patientV<=thresh):
         print("The data provided tells us that you might be at risk of heart disease. Please consult your doctor to find out a possible course of action.")
     else:
-        print("Looks like youre good :)")
+        print("Looks like you are good :)")
 
 
 if __name__ == '__main__':
