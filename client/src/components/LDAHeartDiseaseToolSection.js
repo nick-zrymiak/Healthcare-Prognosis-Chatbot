@@ -6,6 +6,7 @@ import database from "../firebase/Database";
 import axios from "axios";
 
 export default function LDAHeartDiseaseSection() {
+  const [ldaResult, setLdaResult]= useState('');
   const { currentUser } = useAuth();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -29,21 +30,21 @@ export default function LDAHeartDiseaseSection() {
   const [data, updateData] = useState();
 
   //Data to be sent to backend for processing
-  const sendData = {
-    A:age,
-    B:gender,
-    C:chestPain,
-    D:restingBloodPressure,
-    E:serumCholestoral,
-    F:lowBloodSugar,
-    G:electrocardiograph,
-    H:maxHeartRate, //done
-    I:exerciseInducedAngina,
-    J:STDepresionDifference,
-    K:STSegmentSlope,
-    L:majorVesselsColored,
-    M:thal,
-  };
+  // const sendData = {
+  //   A:age,
+  //   B:gender,
+  //   C:chestPain,
+  //   D:restingBloodPressure,
+  //   E:serumCholestoral,
+  //   F:lowBloodSugar,
+  //   G:electrocardiograph,
+  //   H:maxHeartRate, //done
+  //   I:exerciseInducedAngina,
+  //   J:STDepresionDifference,
+  //   K:STSegmentSlope,
+  //   L:majorVesselsColored,
+  //   M:thal,
+  // };
 
   const sendData2= [age,gender,chestPain,restingBloodPressure,serumCholestoral,lowBloodSugar,electrocardiograph,maxHeartRate,
   exerciseInducedAngina,STDepresionDifference,STSegmentSlope,majorVesselsColored,thal]
@@ -73,14 +74,13 @@ export default function LDAHeartDiseaseSection() {
       console.log(STDepresionDifference)
       console.log(thal)
 
-
       //make the post request
-     
       axios.
       post('http://localhost:8000/api/lda',  sendData2)
       .then(response =>{
         console.log('\tserver responded with:')
         console.log(response.data);
+        setLdaResult(response.data);
         // setChatData(response.data);
       })
       .catch( error=>{
@@ -327,6 +327,7 @@ export default function LDAHeartDiseaseSection() {
           <Button disabled={loading} variant="primary" value="submit" type="submit">
             Submit
           </Button>
+          {ldaResult.length > 0?<h1>{ldaResult}</h1>:<h1>Click Submit to view analysis result</h1>}
           <div className="mt-3">
             <Link to="/dashboard">Back To Dashboard</Link>
           </div>
