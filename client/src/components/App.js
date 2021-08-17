@@ -9,6 +9,7 @@ import PrivateRoute from "./PrivateRoute";
 import RecoverPassword from "./RecoverPassword";
 import LandingPage from "./LandingPage";
 import LDAHeartDiseaseSection from "./LDAHeartDiseaseToolSection";
+import ChatBotSection from "./ChatBotSection";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <PrivateRoute exact path="/dashboard" component={Dashboard} />
           <PrivateRoute exact path="/editUserData" component={EditUserData} />
           <PrivateRoute exact path="/LDAHeartDisease" component={LDAHeartDiseaseSection} />
+          <PrivateRoute exact path="/ChatBot" component={ChatBotSection} />
           <Route path="/" component={LandingPage} />
         </Switch>
       </AuthProvider>

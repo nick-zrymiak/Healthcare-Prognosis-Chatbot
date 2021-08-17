@@ -64,7 +64,7 @@ export default function NavBar() {
           </div>
 
           <Nav className="navbarLinks mr-auto">
-            <Nav.Link href="#bot">Chat Bot</Nav.Link>
+            <Nav.Link href="/ChatBot">Chat Bot</Nav.Link>
             <Nav.Link href="/LDAHeartDisease">Heart Disease Tool</Nav.Link>
             <Nav.Link href="#mri">MRI Analysis Tool</Nav.Link>
             <Nav.Link href="#audio">Audio Analysis Tool</Nav.Link>
