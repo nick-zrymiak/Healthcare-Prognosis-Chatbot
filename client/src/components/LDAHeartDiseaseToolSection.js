@@ -30,23 +30,6 @@ export default function LDAHeartDiseaseSection() {
   const history = useHistory();
   const [data, updateData] = useState();
 
-  //Data to be sent to backend for processing
-  // const sendData = {
-  //   A:age,
-  //   B:gender,
-  //   C:chestPain,
-  //   D:restingBloodPressure,
-  //   E:serumCholestoral,
-  //   F:lowBloodSugar,
-  //   G:electrocardiograph,
-  //   H:maxHeartRate, //done
-  //   I:exerciseInducedAngina,
-  //   J:STDepresionDifference,
-  //   K:STSegmentSlope,
-  //   L:majorVesselsColored,
-  //   M:thal,
-  // };
-
   const sendData2= [age,gender,chestPain,restingBloodPressure,serumCholestoral,lowBloodSugar,electrocardiograph,maxHeartRate,
   exerciseInducedAngina,STDepresionDifference,STSegmentSlope,majorVesselsColored,thal]
 
@@ -329,6 +312,7 @@ export default function LDAHeartDiseaseSection() {
           <Button disabled={loading} variant="primary" value="submit" type="submit">
             Submit
           </Button>
+          <div></div>
           {ldaResult.length > 0?<h3>{ldaResult}</h3>:<h3>Click SUBMIT button to view analysis result</h3>}
           <div className="mt-3">
             <Link to="/dashboard">Back To Dashboard</Link>
