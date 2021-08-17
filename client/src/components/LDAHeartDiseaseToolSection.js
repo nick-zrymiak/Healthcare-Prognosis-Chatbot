@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Button, Form, Row, Col, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
-import database from "../firebase/Database"
+import database from "../firebase/Database";
+import axios from "axios";
 
 export default function LDAHeartDiseaseSection() {
   const { currentUser } = useAuth();
@@ -51,6 +52,21 @@ export default function LDAHeartDiseaseSection() {
       console.log(chestPain)
       console.log(STDepresionDifference)
       console.log(thal)
+
+
+      //make the post request
+      const sendData = {data:'some data text'};
+      axios.
+      post('http://localhost:8000/api/lda',  sendData)
+      .then(response =>{
+        console.log('\tserver responded with:')
+        console.log(response.data);
+        // setChatData(response.data);
+      })
+      .catch( error=>{
+        console.log('baal error:', error);
+      })
+
     }
     try {
       runLDATool();

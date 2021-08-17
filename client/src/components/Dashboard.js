@@ -35,7 +35,7 @@ export default function Dashboard() {
     // make an axios call
     const article = { title: 'React Hooks POST Request Example' };
     axios.
-      post('http://localhost:8000/api/user',  article)
+      post('http://localhost:8000/api/lda',  article)
       .then(response =>{
         console.log(response.data);
         setChatData(response.data);

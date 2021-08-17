@@ -15,17 +15,11 @@ def index(request):
    return HttpResponse(response)
 
 @csrf_exempt 
-def runChat(request):
+def lda(request):
    if request.method == 'POST':
       response = 'post made from to the backend'
-      # response = request.POST.get("getrow")
-      # print(request.POST.get("getrow"))
-      print(request.POST.get('title'))
-      return HttpResponse(response) 
+      print(request.body)
+      return HttpResponse(request.body) 
    return HttpResponse('else response') 
 
-# def mriCancer(reqeust): #expect: im
-#    if request.method =='POST':
-#       #your code
-#       return (yes || no)
 
