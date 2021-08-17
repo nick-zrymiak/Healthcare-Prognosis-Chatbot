@@ -10,8 +10,8 @@ export default function LDAHeartDiseaseSection() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   // 0 represents female, 1 represents male
-  const [gender, setGender] = useState(1);
   const [age, setAge] = useState(20);
+  const [gender, setGender] = useState(1);
   //0: typical angina, 1: atypical angina, 2: non-anginal pain, 3: no pain
   const [chestPain, setChestPain] = useState(3);
   const [restingBloodPressure, setRestingBloodPressure] = useState(140);
@@ -27,6 +27,23 @@ export default function LDAHeartDiseaseSection() {
 
   const history = useHistory();
   const [data, updateData] = useState();
+
+  //Data to be sent to backend for processing
+  const sendData = {
+    A:age,
+    B:gender,
+    C:chestPain,
+    D:restingBloodPressure,
+    E:serumCholestoral,
+    F:lowBloodSugar,
+    G:electrocardiograph,
+    H:maxHeartRate, //done
+    I:exerciseInducedAngina,
+    J:STDepresionDifference,
+    K:STSegmentSlope,
+    L:majorVesselsColored,
+    M:thal,
+  };
 
   useEffect(() => {
     loadUserData();
@@ -55,7 +72,7 @@ export default function LDAHeartDiseaseSection() {
 
 
       //make the post request
-      const sendData = {data:'some data text'};
+     
       axios.
       post('http://localhost:8000/api/lda',  sendData)
       .then(response =>{

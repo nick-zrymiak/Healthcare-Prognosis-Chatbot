@@ -18,7 +18,8 @@ def index(request):
 def lda(request):
    if request.method == 'POST':
       response = 'post made from to the backend'
-      print(request.body)
+      temp = request.body
+      print(temp)
       return HttpResponse(request.body) 
    return HttpResponse('else response') 
 
