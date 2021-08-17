@@ -45,6 +45,9 @@ export default function LDAHeartDiseaseSection() {
     M:thal,
   };
 
+  const sendData2= [age,gender,chestPain,restingBloodPressure,serumCholestoral,lowBloodSugar,electrocardiograph,maxHeartRate,
+  exerciseInducedAngina,STDepresionDifference,STSegmentSlope,majorVesselsColored,thal]
+
   useEffect(() => {
     loadUserData();
   }, []);
@@ -74,7 +77,7 @@ export default function LDAHeartDiseaseSection() {
       //make the post request
      
       axios.
-      post('http://localhost:8000/api/lda',  sendData)
+      post('http://localhost:8000/api/lda',  sendData2)
       .then(response =>{
         console.log('\tserver responded with:')
         console.log(response.data);

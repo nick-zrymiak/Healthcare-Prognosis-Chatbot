@@ -22,14 +22,10 @@ def analysisDecision(patientVals):
     if(patientV<=thresh):
         print("The data provided tells us that you might be at risk of heart disease. Please consult your doctor to find out a possible course of action.")
     else:
-        print("Looks like youre good :)")
+        print("Looks like you are good :)")
 
 
 if __name__ == '__main__':
-<<<<<<< HEAD
     analysisDecision([71, 1, 1, 154, 300, 1, 2, 188, 1, 2, 2, 2, 0])
 
 
-=======
-    analysisDecision([71, 1, 1, 154, 300, 1, 2, 188, 1, 2, 2, 2, 0])
->>>>>>> awshaf
