@@ -8,6 +8,8 @@ import database from "../firebase/Database";
 import UserDataSection from "./UserDataSection";
 import axios from 'axios';
 
+import dummpyPicture from '../'
+
 export default function Dashboard() {
   const [chatData, setChatData] = useState('');
   const { currentUser, logout } = useAuth();
@@ -28,31 +30,26 @@ export default function Dashboard() {
 
   const handleSubmit = (e) =>{
     e.preventDefault();
-    setChatData('chatData changed');
+    // setChatData('chatData changed');
 
     // make an axios call
+    const article = { title: 'React Hooks POST Request Example' };
     axios.
-      post('http://localhost:8000/api/user',  {
-        method: 'POST',
-        body: 'body text questionary',
-        headers: {
-            // 'X-Api-Key': API_KEY,
-            'Content-Type': 'application/json'
-            // Other possible headers
-        }
-    })
+      post('http://localhost:8000/api/user',  article)
       .then(response =>{
         console.log(response.data);
+        setChatData(response.data);
       })
       .catch( error=>{
-        console.log('catched error:', error);
+        console.log('baal error:', error);
       })
     // fetch data from post
     // render response
 
-    
+    if(chatData.length<1){
+      setChatData('no response from backend yet');
+    }
 
-    console.log('submit button clicked')
     
   }
 
@@ -73,6 +70,8 @@ export default function Dashboard() {
   return (
     <div>
       <NavBarDashboard expand="lg"></NavBarDashboard>
+      {/* <NewComponent></NewComponent> */}
+
       <Container
         // className="d-flex align-items-center justify-content-sr"
         style={{ minHeight: "100vh", paddingTop:'250px' }}
@@ -100,14 +99,14 @@ export default function Dashboard() {
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
             <Form.Label>Type in your symptoms:</Form.Label>
-            <Form.Control as="textarea" rows={1} placeholder='weakness fever cold' />
+            <Form.Control as="textarea" rows={1} placeholder='weakness fever cold' name="getrow" />
            
           </Form.Group>
           <Button variant="link" type="submit">
             SUBMIT
           </Button>
         </Form>
-        {chatData.length>0? <h1>chatData</h1>: <h1></h1>}
+        {chatData.length>0? <h1>{chatData}</h1> : <h1></h1>}
       </Container>
 
       <UserDataSection></UserDataSection>
