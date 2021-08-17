@@ -4,6 +4,7 @@ import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import database from "../firebase/Database";
 import axios from "axios";
+import NavBarDashboard from "./NavBarDashboard";
 
 export default function LDAHeartDiseaseSection() {
   const [ldaResult, setLdaResult]= useState('');
@@ -98,12 +99,13 @@ export default function LDAHeartDiseaseSection() {
 
   return (
     <section className="editDataSection d-flex flex-column">
-      <div className="textSubSection">
+      <NavBarDashboard/>
+      <div className="textSubSection p-3 mt-2">
         <h3>LDA Heart Disease Tool</h3>
       </div>
       <div onSubmit={handleSubmit} className="w-75">
         {error && <Alert variant="danger">{error}</Alert>}
-        <Form>
+        <Form >
           <Form.Group as={Row} className="mb-3 mt-2">
             <Form.Label as="legend" column sm={2}>
               Chest Pain (0: typical angina, 1: atypical angina, 2: non-anginal pain, 3: no pain)
@@ -327,7 +329,7 @@ export default function LDAHeartDiseaseSection() {
           <Button disabled={loading} variant="primary" value="submit" type="submit">
             Submit
           </Button>
-          {ldaResult.length > 0?<h1>{ldaResult}</h1>:<h1>Click Submit to view analysis result</h1>}
+          {ldaResult.length > 0?<h3>{ldaResult}</h3>:<h3>Click SUBMIT button to view analysis result</h3>}
           <div className="mt-3">
             <Link to="/dashboard">Back To Dashboard</Link>
           </div>
