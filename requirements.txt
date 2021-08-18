@@ -1,0 +1,14 @@
+matplotlib
+seaborn
+cv2
+tensorflow
+tqdm 
+os
+sklearn
+io
+PIL
+joblib==0.14.0
+numpy==1.17.3
+pandas==0.25.2
+requests==2.22.0
+scikit-learn
