@@ -34,6 +34,7 @@ Detecting heart problems in the early stage is crucial to save ones' life. There
 Open http://localhost:5000 to view it in the browser.
 <br>
 <br>
+
 ## To run the disease predictor:
 
 #### `cd Healthcare-Analyser-and-Chatbot/MRI`
