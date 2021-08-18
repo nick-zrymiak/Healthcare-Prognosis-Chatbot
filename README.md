@@ -39,6 +39,8 @@ Open http://localhost:5000 to view it in the browser.
 
 #### `cd Healthcare-Analyser-and-Chatbot/MRI`
 
+#### `pip install -r requirements.txt`
+
 #### `python predictor.py`
 
 <br>
