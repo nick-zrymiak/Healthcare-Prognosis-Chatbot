@@ -22,7 +22,7 @@ Detecting heart, brain and general health problems.
 
 <br>
 
-### Run the frontend:
+### Run the frontend(Can be done without backend):
 
 #### `cd Healthcare-Prognosis-Chatbot/client`
 
