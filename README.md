@@ -35,13 +35,24 @@ Open http://localhost:5000 to view it in the browser.
 <br>
 <br>
 
+## To run the disease predictor:
+
+#### `cd Healthcare-Analyser-and-Chatbot/MRI`
+
+#### `pip install -r requirements.txt`
+
+#### `python predictor.py`
+
+<br>
+<br>
+
 ### Activate virtual Environment for Windows:
 
     -Create virtual environment files:
     	"py -3 -m venv .venv"
 
     -Install "pipnv" wrapper for python virtual environment
-    	"pip3 install pipenv"
+    	"pip3 install -U pip virtualenv"
 
     -ACTIVATE your pipenv wrapper by either:
     	1)"pipenv shell"
@@ -50,7 +61,22 @@ Open http://localhost:5000 to view it in the browser.
     -DEACTIVATE virtual environment command:
     	"deactivate"
 
-For more details on how to set up python virtual environment using VS-Code: https://code.visualstudio.com/docs/python/python-tutorial
+### Alternative method :
+
+    -Step 1
+    	"pip3 install -U pip virtualenv"
+
+    -Step 2
+    	"virtualenv --system-site-packages -p python ./venv"
+    	"or"
+    	"virtualenv --system-site-packages -p python3 ./venv"
+
+    -Step 3
+    	".\venv\Scripts\activate"
+
+For more details on how to set up python virtual environment using VS-Code:
+https://stackoverflow.com/questions/8921188issue-with-virtualenv-cannot-activate
+https://code.visualstudio.com/docs/python/python-tutorial
 https://www.jetbrains.com/help/pycharm/pipenv.html
 
 ## Contributers:
