@@ -2,7 +2,7 @@ import React, { Component, useRef, useState, useEffect } from "react";
 import NavBarLandingPage from "./NavBarLandingPage";
 import IntroSection from "./IntroSection";
 import StatsRow from "./StatsRow";
-import { HeartDiseaseCard, NLPChatBotCard } from "./LandingPageToolDescriptions";
+import { HeartDiseaseCard, NLPChatBotCard, MRICard } from "./LandingPageToolDescriptions";
 import axios from "axios";
 
 export default function LandingPage() {
@@ -30,9 +30,9 @@ export default function LandingPage() {
         <NavBarLandingPage expand="lg"></NavBarLandingPage>
         <IntroSection />
         <StatsRow />
-        {/* <div ref={ref} >{isVisible && console.count('im on screen')}</div> */}
         <NLPChatBotCard />
         <HeartDiseaseCard />
+        <MRICard />
       </div>
     </div>
   );

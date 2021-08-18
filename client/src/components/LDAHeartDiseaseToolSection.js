@@ -7,7 +7,7 @@ import axios from "axios";
 import NavBarDashboard from "./NavBarDashboard";
 
 export default function LDAHeartDiseaseSection() {
-  const [ldaResult, setLdaResult]= useState('');
+  const [ldaResult, setLdaResult] = useState('');
   const { currentUser } = useAuth();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -30,8 +30,8 @@ export default function LDAHeartDiseaseSection() {
   const history = useHistory();
   const [data, updateData] = useState();
 
-  const sendData2= [age,gender,chestPain,restingBloodPressure,serumCholestoral,lowBloodSugar,electrocardiograph,maxHeartRate,
-  exerciseInducedAngina,STDepresionDifference,STSegmentSlope,majorVesselsColored,thal]
+  const sendData2 = [age, gender, chestPain, restingBloodPressure, serumCholestoral, lowBloodSugar, electrocardiograph, maxHeartRate,
+    exerciseInducedAngina, STDepresionDifference, STSegmentSlope, majorVesselsColored, thal]
 
   useEffect(() => {
     loadUserData();
@@ -60,16 +60,16 @@ export default function LDAHeartDiseaseSection() {
 
       //make the post request
       axios.
-      post('http://localhost:8000/api/lda',  sendData2)
-      .then(response =>{
-        console.log('\tserver responded with:')
-        console.log(response.data);
-        setLdaResult(response.data);
-        // setChatData(response.data);
-      })
-      .catch( error=>{
-        console.log('baal error:', error);
-      })
+        post('http://localhost:8000/api/lda', sendData2)
+        .then(response => {
+          console.log('\tserver responded with:')
+          console.log(response.data);
+          setLdaResult(response.data);
+          // setChatData(response.data);
+        })
+        .catch(error => {
+          console.log('baal error:', error);
+        })
 
     }
     try {
@@ -82,7 +82,7 @@ export default function LDAHeartDiseaseSection() {
 
   return (
     <section className="editDataSection d-flex flex-column">
-      <NavBarDashboard/>
+      <NavBarDashboard />
       <div className="textSubSection p-3 mt-2">
         <h3>LDA Heart Disease Tool</h3>
       </div>
@@ -313,7 +313,7 @@ export default function LDAHeartDiseaseSection() {
             Submit
           </Button>
           <div></div>
-          {ldaResult.length > 0?<h3>{ldaResult}</h3>:<h3>Click SUBMIT button to view analysis result</h3>}
+          {ldaResult.length > 0 ? <h3>{ldaResult}</h3> : <h3>Click SUBMIT button to view analysis result</h3>}
           <div className="mt-3">
             <Link to="/dashboard">Back To Dashboard</Link>
           </div>
