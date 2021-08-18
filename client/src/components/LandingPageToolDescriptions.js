@@ -1,6 +1,7 @@
 import React from "react";
 import heartImage from "./../images/ct-scan-heart.jpg";
-import chatbot from "./../images/chatbot.png";
+import chatbotImage from "./../images/chatbot.png";
+import mriImange from "./../images/head-mri.jpg";
 
 export function HeartDiseaseCard() {
   return (
@@ -27,7 +28,7 @@ export function NLPChatBotCard() {
     <div className="parent-article">
       <div className="article"  >
         <div className="left-img-article">
-          <img src={chatbot} width="280px" alt="brain-intro-img" />
+          <img src={chatbotImage} width="280px" alt="brain-intro-img" />
         </div>
         <div className="right-text-article">
           <h2>NLP ChatBot for Sypmtoms</h2>
@@ -42,3 +43,22 @@ export function NLPChatBotCard() {
   );
 }
 
+export function MRICard() {
+  return (
+    <div className="parent-article">
+      <div className="article"  >
+        <div className="left-img-article">
+          <img src={mriImange} width="280px" alt="brain-intro-img" />
+        </div>
+        <div className="right-text-article">
+          <h2>MRI Disease Predictor</h2>
+          <div className='article-underline'></div>
+          <h5>Upload an MRI of the brain to determine if it is cancerous</h5>
+          <p>
+            The Predictor script takes in a Brain MRI JPEG as input and uses a Transfer Learning Convectional Neural Network to produce a potential diagnosis.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}

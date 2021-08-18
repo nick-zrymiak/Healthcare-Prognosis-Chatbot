@@ -28,29 +28,29 @@ export default function Dashboard() {
     getData();
   };
 
-  const handleSubmit = (e) =>{
+  const handleSubmit = (e) => {
     e.preventDefault();
     // setChatData('chatData changed');
 
     // make an axios call
     const article = { title: 'React Hooks POST Request Example' };
     axios.
-      post('http://localhost:8000/api/lda',  article)
-      .then(response =>{
+      post('http://localhost:8000/api/lda', article)
+      .then(response => {
         console.log(response.data);
         setChatData(response.data);
       })
-      .catch( error=>{
+      .catch(error => {
         console.log('baal error:', error);
       })
     // fetch data from post
     // render response
 
-    if(chatData.length<1){
+    if (chatData.length < 1) {
       setChatData('no response from backend yet');
     }
 
-    
+
   }
 
   async function handleLogout() {
@@ -70,46 +70,22 @@ export default function Dashboard() {
   return (
     <div>
       <NavBarDashboard expand="lg"></NavBarDashboard>
-      {/* <NewComponent></NewComponent> */}
-
-      <Container
-        // className="d-flex align-items-center justify-content-sr"
-        style={{ minHeight: "100vh", paddingTop:'250px' }}
-      >
-        {/* <div className="w-100" style={{ maxWidth: "400px" }}>
-          <Card>
-            <Card.Body>
-              {currentUser && <Alert variant="success">{message}</Alert>}
-              {data && data.firstName && "Hello " + data.firstName}
-            </Card.Body>
-          </Card>
-          <Button variant="link" onClick={handleLogout}>
-            Log Out
-          </Button>
-          <Button
-            variant="link"
-            onClick={() => {
-              history.push("/");
-            }}
-          >
-            <h3>Go Back To Landing Page</h3>
-          </Button>
-        </div> */}
-        {/* <h3>Go Back To Landing Page</h3> */}
-        <Form onSubmit={handleSubmit}>
-          <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-            <Form.Label>Type in your symptoms:</Form.Label>
-            <Form.Control as="textarea" rows={1} placeholder='weakness fever cold' name="getrow" />
-           
-          </Form.Group>
-          <Button variant="link" type="submit">
-            SUBMIT
-          </Button>
-        </Form>
-        {chatData.length>0? <h1>{chatData}</h1> : <h1></h1>}
-      </Container>
+      <Card>
+        <Card.Body>
+          {currentUser && <Alert variant="success">{message}! {data && data.firstName && "Hello " + data.firstName}!</Alert>}
+        </Card.Body>
+      </Card>
 
       <UserDataSection></UserDataSection>
+
+      <Button
+        variant="link"
+        onClick={() => {
+          history.push("/");
+        }}
+      >
+        <h3>Go Back To Landing Page</h3>
+      </Button>
     </div>
   );
 }
